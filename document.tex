@@ -1,0 +1,325 @@
+\documentclass[a4paper,14pt,russian, leqno, fleqn]{extreport}
+\usepackage{extsizes}
+\usepackage{cmap} % для кодировки шрифтов в pdf
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage[left=25mm, top=20mm, right=10mm, bottom=20mm, nohead, nofoot]{geometry}
+\usepackage{graphicx} % для вставки картинок
+\usepackage{amssymb,amsfonts,amsmath,amsthm} % математические дополнения от АМС
+\usepackage{indentfirst} % отделять первую строку раздела абзацным отступом тоже
+\usepackage[usenames,dvipsnames]{color} % названия цветов
+\usepackage{makecell}
+\usepackage{multirow} % улучшенное форматирование таблиц
+\usepackage{ulem} % подчеркивания
+%\usepackage{pscyr}
+%\usepackage{txfonts}
+\usepackage{longtable}
+\linespread{1.3} % полуторный интервал
+%\renewcommand{\rmdefault}{ftm} % Times New Roman
+\frenchspacing
+
+%Нумерация страниц
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\fancyheadoffset{0mm}
+\fancyfootoffset{0mm}
+\setlength{\headheight}{17pt}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancypagestyle{plain}{ 
+	\fancyhf{}
+	\rhead{\thepage}}
+\setcounter{page}{5} % начать нумерацию страниц с №5
+
+%Подписи таблиц
+\usepackage[tableposition=top]{caption}
+\usepackage{subcaption}
+\DeclareCaptionLabelFormat{gostfigure}{Рисунок #2}
+\DeclareCaptionLabelFormat{gosttable}{Таблица #2}
+\DeclareCaptionLabelSeparator{gost}{~---~}
+\captionsetup{labelsep=gost}
+\captionsetup[figure]{labelformat=gostfigure}
+\captionsetup[table]{labelformat=gosttable}
+\renewcommand{\thesubfigure}{\asbuk{subfigure}}
+
+%Отступы
+\usepackage{titlesec}
+
+\titleformat{\chapter}[display]
+{\filcenter}
+{\MakeUppercase{\chaptertitlename} \thechapter}
+{8pt}
+{\bfseries}{}
+
+\titleformat{\section}
+{\normalsize\bfseries}
+{\thesection}
+{1em}{}
+
+\titleformat{\subsection}
+{\normalsize\bfseries}
+{\thesubsection}
+{1em}{}
+
+% Настройка вертикальных и горизонтальных отступов
+\titlespacing*{\chapter}{0pt}{-30pt}{8pt}
+\titlespacing*{\section}{\parindent}{*5}{*5}
+\titlespacing*{\subsection}{\parindent}{*8}{*8}
+
+%Списки
+\usepackage{enumitem}
+\makeatletter
+\AddEnumerateCounter{\asbuk}{\@asbuk}{м)}
+\makeatother
+\setlist{nolistsep}
+\renewcommand{\labelitemi}{-}
+\renewcommand{\labelenumi}{\asbuk{enumi})}
+\renewcommand{\labelenumii}{\arabic{enumii})}
+
+%Оглавление
+\usepackage{tocloft}
+\renewcommand{\cfttoctitlefont}{\hspace{0.38\textwidth} \bfseries\MakeUppercase}
+\renewcommand{\cftbeforetoctitleskip}{-1em}
+\renewcommand{\cftaftertoctitle}{\mbox{}\hfill \\ \mbox{}\hfill{\footnotesize Стр.}\vspace{-2.5em}}
+\renewcommand{\cftchapfont}{\normalsize\bfseries \MakeUppercase{\chaptername} }
+\renewcommand{\cftsecfont}{\hspace{31pt}}
+\renewcommand{\cftsubsecfont}{\hspace{11pt}}
+\renewcommand{\cftbeforechapskip}{1em}
+\renewcommand{\cftparskip}{-1mm}
+\renewcommand{\cftdotsep}{1}
+\setcounter{tocdepth}{2} % задать глубину оглавления — до subsection включительно
+
+\newcommand{\empline}{\mbox{}\newline}
+\newcommand{\likechapterheading}[1]{ 
+	\begin{center}
+		\textbf{\MakeUppercase{#1}}
+	\end{center}
+	\empline}
+
+\makeatletter
+\renewcommand{\@dotsep}{2}
+\newcommand{\l@likechapter}[2]{{\bfseries\@dottedtocline{0}{5pt}{5pt}{#1}{#2}}}
+\makeatother
+\newcommand{\likechapter}[1]{    
+	\likechapterheading{#1}    
+	\addcontentsline{toc}{likechapter}{\MakeUppercase{#1}}}
+
+
+\begin{document}
+	
+	\tableofcontents
+	
+	\chapter{Лабораторная работа № 1}
+	\section{Тема работы. Цель работы. Порядок выполнения работы}
+	\textbf{Тема:} решение краевых задач математической физики методом конечных разностей.
+	
+	\textbf{Цель работы:} получение практических навыков построения и исследования разностных схем для задач математической физики, разработки вычислительных алгоритмов и компьютерных программ для их решения.
+	
+	\textbf{Порядок выполнения лабораторной работы:}
+	\begin{enumerate}
+		\item осуществить математическую постановку краевой задачи для физического процесса, описанного в предложенном варианте работы.
+		\item осуществить построение разностной схемы, приближающей полученную краевую задачу. При этом следует согласовать с преподавателем тип разностной схемы;
+		\item провести теоретическое исследование схемы: показать, что схема аппроксимирует исходную краевую задачу, и найти порядки аппроксимации относительно шагов дискретизации; исследовать устойчивость схемы и сходимость сеточного решения к решению исходной задачи математической физики;
+		\item разработать алгоритм численного решения разностной краевой задачи;
+		\item разработать компьютерную программу, реализующую созданный алгоритм, с интерфейсом, обеспечивающим следующие возможности: диалоговый режим ввода физических, геометрических и сеточных параметров задачи; графическую визуализацию численного решения задачи;
+		\item провести исследование зависимости численного решения от величин параметров дискретизации;
+		\item оформить отчет о проделанной работе в соответствии с требованиями, изложенными в методических указаниях.
+	\end{enumerate}
+	
+	\section{Индивидуальное задание на лабораторную работу}	
+	Разработать программу численного моделирования процесса остывания тонкой однородной пластины, имеющей форму диска радиусом $R$ и толщиной $l$. Между гранями пластины и окружающей средой, имеющей температуру $u_c$, происходит теплообмен, описываемый законом Ньютона с коэффициентом теплообмена $\alpha$.  На боковой поверхности $r=R$ пластины поддерживается температура $u_b$. В начальный момент времени поле пластины обладает осевой симметрией, т.е. распределение температуры по пластине зависит только от радиальной координаты $r$ полярной системы, т.е. $u\lvert_{t=0} = \psi(r), 0 \leq r \leq R$.
+	
+	Пластина выполнена из материала, характеризуемого коэффициентами теплопроводности $k$, объемной теплоемкости $с$.
+	
+	Для численного решения задачи теплопроводности на временном промежутке  использовать:
+	
+	\begin{enumerate}
+		\item Простейшую явную конечно-разностную схему;
+		\item Простейшую неявную конечно-разностную схему;
+	\end{enumerate}
+	
+	При проведении расчетов использовать значения параметров $R$, $l$, $u_c$, $u_b$, $\alpha$, $T$, $k$, $c$ и выражение функции $\psi(r)$, указанные преподавателем.
+	
+	\begin{longtable}[c]{|l|l|}
+		\caption{Значения параметров задачи}\\
+			\hline
+			Радиус пластины $R$ & $6$ см \\
+			\hline
+			Толщина пластины $l$ & $0,5$ см\\
+			\hline
+			Температура окружающей среды $u_c$ & $20^{\circ}$ С\\
+			\hline
+			Коэффициент теплообмена $\alpha$ & $0,002 \ \dfrac{\strut\text{Вт}}{\strut\text{см}^2 \cdot \text{К}}$\\
+			\hline
+			Температура боковой поверхности $u_b$ & $(20 + \psi(r))^{\circ}$С \\
+			\hline
+			Продолжительность эксперимента $T$ & $50$ c \\
+			\hline
+			Коэффициент теплопроводности $k$ & $0,59 \ \dfrac{\strut\text{Вт}}{\strut\text{см} \cdot \text{К}}$ \\
+			\hline
+			Объемная теплоемкость $c$ & $1,65 \ \dfrac{\strut\text{Дж}}{\strut\text{см}^3 \cdot \text{К}}$ \\
+			\hline	
+	\end{longtable}
+
+	\section{Описание этапов выполнения лабораторной работы}
+	\subsection{Математическая поставновка задачи}
+	Процесс, происходящий в пластинке, описывается уравнением теплопроводности:
+	\begin{equation}
+	\dfrac{\partial u}{\partial t} = \dfrac{k}{c}\nabla^2u + f(r,t)
+	\end{equation}
+	
+	В постановке задачи указано, что начальное распределение имеет радиальную симметрию. Учтем это и заключим, что дальнейший процесс так же имеет радиальную симметрию, т.е 
+	\begin{equation}
+	u = u(r,t), \quad u(\varphi) = const	
+	\end{equation}
+	
+	тогда:	
+	\begin{equation}
+	\dfrac{\partial u}{\partial t} = \dfrac{k}{c} \left ( \dfrac{1}{r}\dfrac{\partial u}{\partial r} + \dfrac{\partial^2 u}{\partial r^2}\right ) + f(r,t)
+	\label{eq: ut}
+	\end{equation}
+	
+	Теплообмен между поверхностью пластинки и окружающей средой согласно условию задачи описывается при помощи закона Ньютона в дифференциальной форме:	
+	\begin{equation}
+	\dfrac{d}{dt}\dfrac{\partial Q}{\partial S} = \alpha \Delta u  = \alpha (u_c - u)
+	\end{equation}
+	
+	Если считать, что температура окружающей среды однородна, то:	
+	\begin{equation}
+	\dfrac{\partial u}{\partial t} = \dfrac{\alpha S}{cSl}(u_c - u) = \dfrac{\alpha}{cl}(u_c - u) = f(r,t)
+	\label{eq: f}
+	\end{equation}
+	
+	Особо следует рассмотреть граничное условие в точке $r = 0$. Используя соотношение (23) из методических указаний найдем:	
+	\begin{equation}
+	\dfrac{\partial u}{\partial t} = \dfrac{2k}{c} \dfrac{\partial^2 u}{\partial r^2} + \dfrac{\alpha}{cl}(u_c - u)
+	\label{eq: utr0}
+	\end{equation}
+	
+	Тогда, учитывая выражения \eqref{eq: ut}, \eqref{eq: f} и \eqref{eq: utr0}, а также условие задачи, постановка задачи Коши выглядит следующим образом:	
+	\begin{equation}
+	\left \{
+	\begin{array}{l}
+	\dfrac{\partial u}{\partial t} = a^2 \left ( \dfrac{1}{r}\dfrac{\partial u}{\partial r} + \dfrac{\partial^2 u}{\partial r^2}\right ) + \dfrac{\alpha}{cl}(u_c - u), 0 < r \leq R\\
+	\\
+	\dfrac{\partial u}{\partial t} = \dfrac{2k}{c} \dfrac{\partial^2 u}{\partial r^2} + \dfrac{\alpha}{cl}(u_c - u), r = 0 \\
+	\\
+	u(0,r) = \psi(r), 0 \leq r \leq R \\
+	\\
+	u(t, R) = u_b + J_0\left(\dfrac{\mu r}{R}\right), 0 \leq t \leq T
+	\end{array}
+	\right.
+	\label{eq: koschi_task}
+	\end{equation}
+
+	\subsection{Построение аналитического решения}
+	Рассмотрим систему \eqref{eq: koschi_task} в следующем виде:
+	\begin{equation}
+		\left \{\begin{array}{l}
+		\dfrac{\partial u}{\partial t} = a^2 \left ( \dfrac{1}{r}\dfrac{\partial u}{\partial r} + \dfrac{\partial^2 u}{\partial r^2}\right ) + \dfrac{\alpha}{cl}(u_c - u), 0 < r \leq R\\
+		\\
+		u(0, r) = u_b + J_0\left(\dfrac{\mu r}{R}\right), 0 \leq r \leq R
+		\end{array}\right.
+	\end{equation}
+	
+	Преобразуем правую часть первого уравнения этой системы:
+	\begin{equation}
+		a^2 \left ( \dfrac{1}{r}\dfrac{\partial u}{\partial r} + \dfrac{\partial^2 u}{\partial r^2}\right ) - \dfrac{\alpha}{cl}(u - u_c) \Rightarrow \dfrac{1}{r}\dfrac{\partial u}{\partial r} + \dfrac{\partial^2 u}{\partial r^2} - \beta (u - u_c)
+	\end{equation}	
+	
+	Осуществим замену:
+	
+	Таким образом правая часть представляет собой оператор Штурма-Лиувилля, для которого можно решить спектральную задачу:
+	\begin{equation}
+		\hat{L}v = \lambda v
+	\end{equation}
+	\begin{equation}
+		\dfrac{1}{r}\dfrac{\partial v}{\partial r} + \dfrac{\partial^2 v}{\partial r^2} - \beta v = \lambda v
+	\end{equation}
+	Это можно привести к уравнению Бесселя:
+	
+	\subsection{Построение разностной схемы}
+	
+	Для построения разностной схемы для начала введем равномерную сетку с шагами $h_r$ --- пространственный шаг и $h_t$ --- шаг по времени:	
+	\begin{equation}
+	\begin{array}{l}
+	r_i = ih_r, \quad i = \overline{0,I} \quad \\                         
+	t_k = kh_t, \quad k = \overline{0,K}
+	\end{array}
+	\label{eq:grid}
+	\end{equation}
+	
+	Значения шагов равномерной сетки можно найти из следующих соотношений:	
+	\begin{equation}
+	h_r = \dfrac{R}{I}
+	\end{equation}	
+	\begin{equation}
+	h_t = \dfrac{T}{K}
+	\end{equation}
+
+	И рассмотрим 4 разностных отношения для производных по времени и пространству:	
+	\begin{equation}
+	\left.\dfrac{\partial u}{\partial t}\right|_{(r_i,t_k)} = \dfrac{u_i^k-u_i^{k-1}}{h_t}, \quad i = \overline{0, I}, k = \overline{1,K}
+	\label{eq: time_implicit}
+	\end{equation}	
+	\begin{equation}
+	\left.\dfrac{\partial u}{\partial t}\right|_{(r_i,t_k)} = \dfrac{u_i^{k+1}-u_i^k}{h_t}, \quad i = \overline{0, I}, k = \overline{0,K}
+	\label{eq: time_explicit}
+	\end{equation}	
+	\begin{equation}
+	\left.\dfrac{\partial u}{\partial r}\right|_{(r_i, t_k)} = \dfrac{u_{i+1}^k - u_{i-1}^k}{2h_r}, \quad i = \overline{1,I-1}, k = \overline{0,K}
+	\label{eq: first_d}
+	\end{equation}	
+	\begin{equation}
+	\left.\dfrac{\partial^2 u}{\partial r^2}\right|_{(r_i, t_k)} = \dfrac{u_{i+1}^k - 2u_i^k + u_{i-1}^k}{h^2_r}, \quad i = \overline{1,I-1}, k = \overline{0,K}
+	\label{eq: second_d}
+	\end{equation}
+	
+	\paragraph{Построение неявной разностной схемы}
+	
+	При построении явной разностной схемы воспользуемся соотношениями \eqref{eq: time_explicit}, \eqref{eq: first_d}, \eqref{eq: second_d}:
+	
+	\begin{equation}
+		\left\{\begin{array}{l}
+		\dfrac{u_i^{k+1}-u_i^k}{h_t} = \alpha^2\left(\dfrac{1}{ih_r}\dfrac{u_{i+1}^k - u_{i-1}^k}{2h_r} +\dfrac{u_{i+1}^k - 2u_i^k + u_{i-1}^k}{h^2_r}\right) + \dfrac{\alpha}{cl}\left (u_c - u \right) \\
+		i = \overline{1,I-1}, \quad k = \overline{0,K-1}	 \\
+		\dfrac{u_0^{k+1}-u_0^k}{h_t} = \dfrac{2k}{c}\cdot\dfrac{u_1^k-2u_0^k+u_{-1}^k}{h_r^2} + \dfrac{\alpha}{cl}(u_c-u) \\
+		u_i^0 = \psi(ih_r) \\
+		i = \overline{0, I-1} \\
+		u_I^k = u_b \\
+		k = \overline{0,K}
+
+	\end{array}\right.
+	\end{equation}
+	В связи с радиальной симметрией запишем соотношение для первой пространственной производной:
+	\begin{equation}
+		\dfrac{u_1 - u_{-1}}{h_r} = 0
+	\end{equation}
+	Из этого соотношения получим:
+	\begin{equation}
+		u_{-1} = u_1
+	\end{equation}
+	В соответствии с этим получим:
+	\begin{equation}
+		\left\{\begin{array}{l}
+		\dfrac{u_i^{k+1}-u_i^k}{h_t} = \alpha^2\left(\dfrac{1}{ih_r}\dfrac{u_{i+1}^k - u_{i-1}^k}{2h_r} +\dfrac{u_{i+1}^k - 2u_i^k + u_{i-1}^k}{h^2_r}\right) + \dfrac{\alpha}{cl}\left (u_c - u \right) \\
+		i = \overline{1,I-1}, \quad k = \overline{0,K-1}	 \\
+		\dfrac{u_0^{k+1}-u_0^k}{h_t} = \dfrac{4k}{c}\cdot\dfrac{u_1^k-u_0^k}{h_r^2} + \dfrac{\alpha}{cl}(u_c-u_0^k) \\
+		u_i^0 = \psi(ih_r) \\
+		i = \overline{0, I-1} \\
+		u_I^k = u_b \\
+		k = \overline{0,K}
+	\end{array}\right.
+	\end{equation}
+
+	\subsection{Исследование аппроксимации и устойчивости разностной схемы}
+	
+	\chapter{Лабораторная работа №2}
+	\section{Тема работы. Цель работы. Порядок выполнения работы}
+	\section{Описание этапов выполнения лабораторной работы}
+	\subsection{Описание тестовой задачи, ее аналитическое решение}
+	\subsection{Экспериментальное исследование фактической скорости сходимости сеточного решения к точному для тестовой задачи}
+\end{document}
