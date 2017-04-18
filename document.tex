@@ -1,4 +1,5 @@
-\documentclass[a4paper,14pt,russian, leqno, fleqn]{extreport}
+%\documentclass[a4paper,14pt,russian, leqno, fleqn]{extreport}
+\documentclass[a4paper,14pt,russian, fleqn]{extreport}
 \usepackage{extsizes}
 \usepackage{cmap} % для кодировки шрифтов в pdf
 \usepackage[T2A]{fontenc}
@@ -36,7 +37,7 @@
 
 %Подписи таблиц
 \usepackage[tableposition=top]{caption}
-\usepackage{subcaption}abc
+\usepackage{subcaption}
 \DeclareCaptionLabelFormat{gostfigure}{Рисунок #2}
 \DeclareCaptionLabelFormat{gosttable}{Таблица #2}
 \DeclareCaptionLabelSeparator{gost}{~---~}
@@ -65,9 +66,9 @@
 {1em}{}
 
 % Настройка вертикальных и горизонтальных отступов
-\titlespacing*{\chapter}{0pt}{-30pt}{8pt}
-\titlespacing*{\section}{\parindent}{*5}{*5}
-\titlespacing*{\subsection}{\parindent}{*8}{*8}
+\titlespacing*{\chapter}{0pt}{-10pt}{5pt}
+\titlespacing*{\section}{\parindent}{*3}{*1}
+\titlespacing*{\subsection}{\parindent}{*3}{*1}
 
 %Списки
 \usepackage{enumitem}
@@ -167,80 +168,124 @@
 	\section{Описание этапов выполнения лабораторной работы}
 	\subsection{Математическая поставновка задачи}
 	Процесс, происходящий в пластинке, описывается уравнением теплопроводности:
-	\begin{equation}
+	\begin{equation*}
 	\dfrac{\partial u}{\partial t} = \dfrac{k}{c}\nabla^2u + f(r,t)
-	\end{equation}
-	
+	\end{equation*}
 	В постановке задачи указано, что начальное распределение имеет радиальную симметрию. Учтем это и заключим, что дальнейший процесс так же имеет радиальную симметрию, т.е 
-	\begin{equation}
+	\begin{equation*}
 	u = u(r,t), \quad u(\varphi) = const	
-	\end{equation}
-	
+	\end{equation*}
 	тогда:	
-	\begin{equation}
+	\begin{equation*}
 	\dfrac{\partial u}{\partial t} = \dfrac{k}{c} \left ( \dfrac{1}{r}\dfrac{\partial u}{\partial r} + \dfrac{\partial^2 u}{\partial r^2}\right ) + f(r,t)
-	\label{eq: ut}
-	\end{equation}
-	
+	\end{equation*}
 	Теплообмен между поверхностью пластинки и окружающей средой согласно условию задачи описывается при помощи закона Ньютона в дифференциальной форме:	
-	\begin{equation}
-	\dfrac{d}{dt}\dfrac{\partial Q}{\partial S} = \alpha \Delta u  = \alpha (u_c - u)
-	\end{equation}
-	
+	\begin{equation*}
+	\dfrac{d}{dt}\dfrac{\partial Q}{\partial S} = \alpha \Delta u  = \alpha (u_b - u)
+	\end{equation*}
 	Если считать, что температура окружающей среды однородна, то:	
-	\begin{equation}
-	\dfrac{\partial u}{\partial t} = \dfrac{\alpha S}{cSl}(u_c - u) = \dfrac{\alpha}{cl}(u_c - u) = f(r,t)
-	\label{eq: f}
-	\end{equation}
-	
+	\begin{equation*}
+	\dfrac{\partial u}{\partial t} = \dfrac{\alpha S}{cSl}(u_b - u) = \dfrac{\alpha}{cl}(u_b - u) = f(r,t)	
+	\end{equation*}
 	Особо следует рассмотреть граничное условие в точке $r = 0$. Используя соотношение (23) из методических указаний найдем:	
-	\begin{equation}
-	\dfrac{\partial u}{\partial t} = \dfrac{2k}{c} \dfrac{\partial^2 u}{\partial r^2} + \dfrac{\alpha}{cl}(u_c - u)
-	\label{eq: utr0}
-	\end{equation}
-	
-	Тогда, учитывая выражения \eqref{eq: ut}, \eqref{eq: f} и \eqref{eq: utr0}, а также условие задачи, постановка задачи Коши выглядит следующим образом:	
-	\begin{equation}
+	\begin{equation*}
+	\dfrac{\partial u}{\partial t} = \dfrac{2k}{c} \dfrac{\partial^2 u}{\partial r^2} + \dfrac{\alpha}{cl}(u_b - u)
+	\end{equation*}
+	Тогда, учитывая вышеперечисленные выражения, а также условие задачи, постановка задачи Коши выглядит следующим образом:	
+	\begin{equation}\label{KoshiTask}
 	\left \{
 	\begin{array}{l}
-	\dfrac{\partial u}{\partial t} = a^2 \left ( \dfrac{1}{r}\dfrac{\partial u}{\partial r} + \dfrac{\partial^2 u}{\partial r^2}\right ) + \dfrac{\alpha}{cl}(u_c - u), 0 < r \leq R\\
+	\dfrac{\partial u}{\partial t} = a^2 \left ( \dfrac{1}{r}\dfrac{\partial u}{\partial r} + \dfrac{\partial^2 u}{\partial r^2}\right ) + \dfrac{\alpha}{cl}(u_b - u), 0 < r \leq R\\
 	\\
 	\dfrac{\partial u}{\partial t} = \dfrac{2k}{c} \dfrac{\partial^2 u}{\partial r^2} + \dfrac{\alpha}{cl}(u_c - u), r = 0 \\
 	\\
-	u(0,r) = \psi(r), 0 \leq r \leq R \\
+	u(r, 0) = u_b + J_0\left(\dfrac{\mu_1 r}{R}\right), 0 \leq r \leq R \\
 	\\
-	u(t, R) = u_b + J_0\left(\dfrac{\mu r}{R}\right), 0 \leq t \leq T
+	u(R, t) = u_b, 0 \leq t \leq T
 	\end{array}
 	\right.
-	\label{eq: koschi_task}
 	\end{equation}
 
 	\subsection{Построение аналитического решения}
-	Рассмотрим систему \eqref{eq: koschi_task} в следующем виде:
-	\begin{equation}
+	Рассмотрим систему \eqref{KoshiTask} в следующем виде:
+	\begin{equation}\label{KoshiTaskTestSolution}
 		\left \{\begin{array}{l}
-		\dfrac{\partial u}{\partial t} = a^2 \left ( \dfrac{1}{r}\dfrac{\partial u}{\partial r} + \dfrac{\partial^2 u}{\partial r^2}\right ) + \dfrac{\alpha}{cl}(u_c - u), 0 < r \leq R\\
+		\dfrac{\partial u}{\partial t} = a^2 \left ( \dfrac{1}{r}\dfrac{\partial u}{\partial r} + \dfrac{\partial^2 u}{\partial r^2}\right ) + \dfrac{\alpha}{cl}(u_b - u), 0 < r \leq R\\
 		\\
-		u(0, r) = u_b + J_0\left(\dfrac{\mu r}{R}\right), 0 \leq r \leq R
+		u(r, 0) = u_b + J_0\left(\dfrac{\mu_1 r}{R}\right), 0 \leq r \leq R \\
+		\\
+		u(R, t) = u_b
 		\end{array}\right.
 	\end{equation}
 	
-	Преобразуем правую часть первого уравнения этой системы:
-	\begin{equation}
-		a^2 \left ( \dfrac{1}{r}\dfrac{\partial u}{\partial r} + \dfrac{\partial^2 u}{\partial r^2}\right ) - \dfrac{\alpha}{cl}(u - u_c) \Rightarrow \dfrac{1}{r}\dfrac{\partial u}{\partial r} + \dfrac{\partial^2 u}{\partial r^2} - \beta (u - u_c)
-	\end{equation}	
+	В этом уравнении $J_0 \left ( \dfrac{\mu_1 r}{R} \right)$ --- функция Бесселя нулевого порядка, а $\mu_1$ --- первый корень уравнения $J \left( \mu \right) = 0$.
 	
-	Осуществим замену:
+	Воспользуемся вспомогательной задачей на собственные значения уравнения Лапласа. Для начала, сделаем так чтобы граничные условия были однородными, для этого осуществим замену:
+	\begin{equation*}
+	u = v + u_b
+	\end{equation*}
 	
-	Таким образом правая часть представляет собой оператор Штурма-Лиувилля, для которого можно решить спектральную задачу:
-	\begin{equation}
-		\hat{L}v = \lambda v
+	Тогда задача \eqref{KoshiTaskTestSolution} будет выглядеть следующим образом
+	\begin{equation}\label{KoshiTaskTestSolutionUniform}
+	\left \{\begin{array}{l}
+	\dfrac{\partial v}{\partial t} = a^2 \left ( \dfrac{1}{r}\dfrac{\partial v}{\partial r} + \dfrac{\partial^2 v}{\partial r^2}\right ) - \dfrac{\alpha}{cl}v, 0 < r \leq R\\
+	\\
+	v(r, 0) = J_0\left(\dfrac{\mu_1 r}{R}\right), 0 \leq r \leq R \\
+	\\
+	v(R, t) = 0
+	\end{array}\right.
 	\end{equation}
-	\begin{equation}
-		\dfrac{1}{r}\dfrac{\partial v}{\partial r} + \dfrac{\partial^2 v}{\partial r^2} - \beta v = \lambda v
-	\end{equation}
-	Это можно привести к уравнению Бесселя:
 	
+	Теперь рассмотрим следующую спектральную задачу:
+	\begin{equation*}
+	\hat{L}v = \lambda v
+	\end{equation*}
+	\begin{equation*}
+	\dfrac{1}{r}\dfrac{\partial v}{\partial r} + \dfrac{\partial^2 v}{\partial r^2} = \lambda v
+	\end{equation*}
+	
+	Это уравнение можно привести к уравнению Бесселя и записать его решение в следующем виде:
+	\begin{equation*}
+		v = C(t)J_0\left( \sqrt{-\lambda}r \right)
+	\end{equation*}
+	
+	Решение системы \eqref{KoshiTaskTestSolutionUniform} можно записать в виде бесконечного ряда по собственным функциям оператора Лапласа:
+	\begin{equation}\label{LaplaceSolutionSeries}
+		v(r,t) = \sum\limits^{\infty}_{i=0} C_i(t)J_0\left(\sqrt{-\lambda_i}r\right)
+	\end{equation}
+	
+	Рассмотрим граничное условие $v(R,t) = 0$:
+	\begin{equation*}
+		v(R,t) = \sum\limits^{\infty}_{i=0} C_i(t)J_0\left(\sqrt{-\lambda_i}R\right) = 0 \Rightarrow J_0\left(\sqrt{-\lambda_i}R\right) = 0 \Rightarrow \lambda_i = -\dfrac{\mu_i^2}{R^2}
+	\end{equation*}
+	
+	Теперь рассмотрим другое граничное условие $v(r,0) = J_0\left(\dfrac{\mu_1 r}{R}\right)$:
+	\begin{equation*}
+		v(r,0) = \sum\limits^{\infty}_{i=0} C_i(0)J_0\left(\dfrac{\mu_i r}{R}\right) = J_0\left(\dfrac{\mu_1 r}{R}\right) \Rightarrow C_i(0) = \left\{\begin{array}{c}
+			1, i = 1 \\
+			0, i \ne 1
+		\end{array}\right.
+	\end{equation*}
+	
+	Подставим разложение \eqref{LaplaceSolutionSeries} в первое уравнение системы \eqref{KoshiTaskTestSolutionUniform}
+	\begin{equation*}\label{key}
+	\dfrac{\partial C_i}{\partial t} = - \left ( \dfrac{\mu_i^2}{R^2}a^2 + \dfrac{\alpha}{cl} \right) C_i = -\gamma_i C_i \Rightarrow C_i = A_i \exp{\left( -\gamma_i t \right)}
+	\end{equation*}
+	
+	Подставим граничные условия для $C_i(t)$, получим
+	\begin{equation*}
+		A_i = \left\{\begin{array}{c}
+		1, i = 1 \\
+		0, i \ne 1
+		\end{array}\right.
+	\end{equation*}
+	
+	Тогда решение системы \eqref{KoshiTaskTestSolutionUniform} запишется в виде:
+	\begin{equation*}
+		v(r,t) = \exp{\left[ \left ( \dfrac{\mu_1^2}{R^2}a^2 + \dfrac{\alpha}{cl} \right)t \right]}J_0 \left( \dfrac{\mu_1 r}{R}\right)
+	\end{equation*}
+	
+	Решение уравнения $J_0(\mu) = 0$, найдем при помощи математического пакета $\mu_1 = 2.4048255$.
 	\subsection{Построение разностной схемы}
 	
 	Для построения разностной схемы для начала введем равномерную сетку с шагами $h_r$ --- пространственный шаг и $h_t$ --- шаг по времени:	
@@ -253,68 +298,78 @@
 	\end{equation}
 	
 	Значения шагов равномерной сетки можно найти из следующих соотношений:	
-	\begin{equation}
+	\begin{equation*}
 	h_r = \dfrac{R}{I}
-	\end{equation}	
-	\begin{equation}
+	\end{equation*}	
+	\begin{equation*}
 	h_t = \dfrac{T}{K}
-	\end{equation}
+	\end{equation*}
 
 	И рассмотрим 4 разностных отношения для производных по времени и пространству:	
-	\begin{equation}
-	\left.\dfrac{\partial u}{\partial t}\right|_{(r_i,t_k)} = \dfrac{u_i^k-u_i^{k-1}}{h_t}, \quad i = \overline{0, I}, k = \overline{1,K}
-	\label{eq: time_implicit}
-	\end{equation}	
-	\begin{equation}
-	\left.\dfrac{\partial u}{\partial t}\right|_{(r_i,t_k)} = \dfrac{u_i^{k+1}-u_i^k}{h_t}, \quad i = \overline{0, I}, k = \overline{0,K}
-	\label{eq: time_explicit}
-	\end{equation}	
-	\begin{equation}
-	\left.\dfrac{\partial u}{\partial r}\right|_{(r_i, t_k)} = \dfrac{u_{i+1}^k - u_{i-1}^k}{2h_r}, \quad i = \overline{1,I-1}, k = \overline{0,K}
-	\label{eq: first_d}
-	\end{equation}	
-	\begin{equation}
+	\begin{equation*}
+	\left.\dfrac{\partial u}{\partial t}\right|_{(r_i,t_k)} = \dfrac{u_i^k-u_i^{k-1}}{h_t}, \quad i = \overline{1, I-1}, k = \overline{1,K}
+	\end{equation*}	
+	\begin{equation*}
+	\left.\dfrac{\partial u}{\partial r}\right|_{(r_i, t_k)} = \dfrac{u_{i+1}^k - u_{i-1}^k}{2h_r}, \quad i = \overline{1,I-1}, k = \overline{1,K}
+	\end{equation*}	
+	\begin{equation*}
 	\left.\dfrac{\partial^2 u}{\partial r^2}\right|_{(r_i, t_k)} = \dfrac{u_{i+1}^k - 2u_i^k + u_{i-1}^k}{h^2_r}, \quad i = \overline{1,I-1}, k = \overline{0,K}
-	\label{eq: second_d}
-	\end{equation}
+	\end{equation*}
 	
-	\paragraph{Построение неявной разностной схемы}
-	
-	При построении явной разностной схемы воспользуемся соотношениями \eqref{eq: time_explicit}, \eqref{eq: first_d}, \eqref{eq: second_d}:
-	
-	\begin{equation}
+	На основе этих соотношений построим неявную конечно-разностную схему:
+	\begin{equation*}
 		\left\{\begin{array}{l}
-		\dfrac{u_i^{k+1}-u_i^k}{h_t} = \alpha^2\left(\dfrac{1}{ih_r}\dfrac{u_{i+1}^k - u_{i-1}^k}{2h_r} +\dfrac{u_{i+1}^k - 2u_i^k + u_{i-1}^k}{h^2_r}\right) + \dfrac{\alpha}{cl}\left (u_c - u \right) \\
-		i = \overline{1,I-1}, \quad k = \overline{0,K-1}	 \\
-		\dfrac{u_0^{k+1}-u_0^k}{h_t} = \dfrac{2k}{c}\cdot\dfrac{u_1^k-2u_0^k+u_{-1}^k}{h_r^2} + \dfrac{\alpha}{cl}(u_c-u) \\
-		u_i^0 = \psi(ih_r) \\
-		i = \overline{0, I-1} \\
-		u_I^k = u_b \\
+			\dfrac{u_i^{k}-u_i^{k-1}}{h_t} = a^2\left(\dfrac{1}{ih_r}\dfrac{u_{i+1}^k - u_{i-1}^k}{2h_r} +\dfrac{u_{i+1}^k - 2u_i^k + u_{i-1}^k}{h^2_r}\right) + \dfrac{\alpha}{cl}\left (u_c - u_i^k \right) \\
+			i = \overline{1,I-1}, \quad k = \overline{0,K-1}	 \\
+			\dfrac{u_0^{k}-u_0^{k-1}}{h_t} = \dfrac{2k}{c}\cdot\dfrac{u_1^k-2u_0^k+u_{-1}^k}{h_r^2} + \dfrac{\alpha}{cl}(u_c-u_0^k) \\
+			u_i^0 = u_b + J_0\left( \dfrac{\mu_1 ih_r}{R} \right) \\
+			i = \overline{0, I-1} \\
+			u_I^k = u_b \\
 		k = \overline{0,K}
-
 	\end{array}\right.
-	\end{equation}
+	\end{equation*}
 	В связи с радиальной симметрией запишем соотношение для первой пространственной производной:
-	\begin{equation}
+	\begin{equation*}
 		\dfrac{u_1 - u_{-1}}{h_r} = 0
-	\end{equation}
+	\end{equation*}
 	Из этого соотношения получим:
-	\begin{equation}
+	\begin{equation*}
 		u_{-1} = u_1
-	\end{equation}
+	\end{equation*}
 	В соответствии с этим получим:
 	\begin{equation}
 		\left\{\begin{array}{l}
-		\dfrac{u_i^{k+1}-u_i^k}{h_t} = \alpha^2\left(\dfrac{1}{ih_r}\dfrac{u_{i+1}^k - u_{i-1}^k}{2h_r} +\dfrac{u_{i+1}^k - 2u_i^k + u_{i-1}^k}{h^2_r}\right) + \dfrac{\alpha}{cl}\left (u_c - u \right) \\
-		i = \overline{1,I-1}, \quad k = \overline{0,K-1}	 \\
-		\dfrac{u_0^{k+1}-u_0^k}{h_t} = \dfrac{4k}{c}\cdot\dfrac{u_1^k-u_0^k}{h_r^2} + \dfrac{\alpha}{cl}(u_c-u_0^k) \\
-		u_i^0 = \psi(ih_r) \\
-		i = \overline{0, I-1} \\
-		u_I^k = u_b \\
-		k = \overline{0,K}
-	\end{array}\right.
+			\dfrac{u_i^{k}-u_i^{k-1}}{h_t} = a^2\left(\dfrac{1}{ih_r}\dfrac{u_{i+1}^k - u_{i-1}^k}{2h_r} +\dfrac{u_{i+1}^k - 2u_i^k + u_{i-1}^k}{h^2_r}\right) + \dfrac{\alpha}{cl}\left (u_c - u_i^k \right) \\
+			i = \overline{1,I-1}, \quad k = \overline{0,K-1}	 \\
+			\dfrac{u_0^{k}-u_0^{k-1}}{h_t} = \dfrac{2k}{c}\cdot\dfrac{u_1^k-u_0^k}{h_r^2} + \dfrac{\alpha}{cl}(u_c-u_0^k) \\
+			u_i^0 = u_b + J_0\left( \dfrac{\mu_1 ih_r}{R} \right) \\
+			i = \overline{0, I-1} \\
+			u_I^k = u_b \\
+			k = \overline{0,K}
+		\end{array}\right.
 	\end{equation}
-
+	
+	Перепишем эту схему в виде, удобном для решения дискретной задачи:
+	\begin{equation*}
+		Au^k_{i-1} + Bu^k_i + Cu^k_{i+1} = Du_i^{k-1} + E
+	\end{equation*}
+	
+	Опуская промежуточные выкладки, запишем значения коэффициентов $A$, $B$, $C$, $D$, $E$, $F$:
+	\begin{equation*}
+		A = -\dfrac{a^2h_t}{2ih_r} + \dfrac{a^2h_t}{h_r^2}
+	\end{equation*}
+	\begin{equation*}
+		B = 1 - \dfrac{2h_ta^2}{h_r^2} - \dfrac{\alpha h_t}{cl}
+	\end{equation*}
+	\begin{equation*}
+		C = \dfrac{a^2h_t}{2ih_r^2} + \dfrac{a^2h_t}{h_r^2}
+	\end{equation*}
+	\begin{equation*}
+		D = -1
+	\end{equation*}
+	\begin{equation*}
+		E = - \dfrac{\alpha u_c h_t}{cl}
+	\end{equation*}	
 	\subsection{Исследование аппроксимации и устойчивости разностной схемы}
 	
 	\chapter{Лабораторная работа №2}

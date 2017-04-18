@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.18)  18 APR 2017 01:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.18)  19 APR 2017 02:03
 entering extended mode
 **./document.tex
 (document.tex
@@ -6,9 +6,6 @@ LaTeX2e <2017/01/01> patch level 1
 Babel <3.9r> and hyphenation patterns for 75 language(s) loaded.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\extsizes\extreport.cls"
 Document Class: extreport 1996/10/08 v1.0 Non Standard LaTeX document class
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\leqno.clo"
-File: leqno.clo 2016/12/29 v1.2a Standard LaTeX option (left equation numbers)
-)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\fleqn.clo"
 File: fleqn.clo 2016/12/29 v1.2a Standard LaTeX option (flush left equations)
 \mathindent=\dimen102
@@ -26,7 +23,7 @@ File: size14.clo 1999/11/11 v1.4a NON-Standard LaTeX file (size option)
 Package: exscale 2014/09/29 v2.1h Standard LaTeX package exscale
 LaTeX Font Info:    Redeclaring symbol font `largesymbols' on input line 57.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
-(Font)                  OMX/cmex/m/n --> OMX/cmex/m/n on input line 57.adasdasd
+(Font)                  OMX/cmex/m/n --> OMX/cmex/m/n on input line 57.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 (Font)                  OMX/cmex/m/n --> OMX/cmex/m/n on input line 57.
 \big@size=\dimen103
@@ -900,20 +897,20 @@ Package tocloft Info: The document has chapter divisions on input line 44.
 ) (document.aux)
 \openout1 = `document.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1029,35 +1026,29 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ]
 
-LaTeX Warning: Command \cyrs invalid in math mode on input line 135.
+LaTeX Warning: Command \cyrs invalid in math mode on input line 136.
 
 Missing character: There is no с in font cmr12!
-[7] [8]
-Overfull \hbox (10.20158pt too wide) in paragraph at lines 235--236
-[]\T2A/cmr/m/n/14.4 Таким об-ра-зом пра-вая часть пред-став-ля-ет со-бой опе-ра
--тор Штурма-Лиувилля,
- []
-
-[9] [10] [11]
+[7] [8] [9] [10] [11] [12] [13]
 {\cyrillictext \CYRG \cyrl \cyra \cyrv \cyra } 2.
 
-Overfull \hbox (9.00757pt too wide) in paragraph at lines 324--324
+Overfull \hbox (9.00757pt too wide) in paragraph at lines 379--379
  |[]\T2A/cmr/bx/n/14.4 Экспериментальное ис-сле-до-ва-ние фак-ти-че-ской ско-ро
 -сти схо-
  []
 
 
-Package caption Warning: Unused \captionsetup[figure] on input line 44.
+Package caption Warning: Unused \captionsetup[figure] on input line 45.
 See the caption package documentation for explanation.
 
-[12
+[14
 
 ] (document.aux) ) 
 Here is how much of TeX's memory you used:
- 7221 strings out of 493333
- 100334 string characters out of 3139188
- 187152 words of memory out of 3000000
- 10574 multiletter control sequences out of 15000+200000
+ 7209 strings out of 493333
+ 100121 string characters out of 3139188
+ 187132 words of memory out of 3000000
+ 10564 multiletter control sequences out of 15000+200000
  9572 words of font info for 30 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  39i,12n,46p,1428b,348s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1071,9 +1062,9 @@ public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
 msfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
 m/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.p
 fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on document.pdf (8 pages, 139995 bytes).
+Output written on document.pdf (10 pages, 149160 bytes).
 PDF statistics:
- 202 PDF objects out of 1000 (max. 8388607)
+ 207 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
