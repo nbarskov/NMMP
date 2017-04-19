@@ -13,11 +13,11 @@
 \usepackage{makecell}
 \usepackage{multirow} % улучшенное форматирование таблиц
 \usepackage{ulem} % подчеркивания
-%\usepackage{pscyr}
-%\usepackage{txfonts}
+\usepackage{pscyr}
+\usepackage{txfonts}
 \usepackage{longtable}
 \linespread{1.3} % полуторный интервал
-%\renewcommand{\rmdefault}{ftm} % Times New Roman
+\renewcommand{\rmdefault}{ftm} % Times New Roman
 \frenchspacing
 
 %Нумерация страниц
@@ -197,7 +197,7 @@
 	\begin{array}{l}
 	\dfrac{\partial u}{\partial t} = a^2 \left ( \dfrac{1}{r}\dfrac{\partial u}{\partial r} + \dfrac{\partial^2 u}{\partial r^2}\right ) + \dfrac{\alpha}{cl}(u_b - u), 0 < r \leq R\\
 	\\
-	\dfrac{\partial u}{\partial t} = \dfrac{2k}{c} \dfrac{\partial^2 u}{\partial r^2} + \dfrac{\alpha}{cl}(u_c - u), r = 0 \\
+	\dfrac{\partial u}{\partial t} = 2a^2 \dfrac{\partial^2 u}{\partial r^2} + \dfrac{\alpha}{cl}(u_c - u), r = 0 \\
 	\\
 	u(r, 0) = u_b + J_0\left(\dfrac{\mu_1 r}{R}\right), 0 \leq r \leq R \\
 	\\
@@ -321,7 +321,7 @@
 		\left\{\begin{array}{l}
 			\dfrac{u_i^{k}-u_i^{k-1}}{h_t} = a^2\left(\dfrac{1}{ih_r}\dfrac{u_{i+1}^k - u_{i-1}^k}{2h_r} +\dfrac{u_{i+1}^k - 2u_i^k + u_{i-1}^k}{h^2_r}\right) + \dfrac{\alpha}{cl}\left (u_c - u_i^k \right) \\
 			i = \overline{1,I-1}, \quad k = \overline{0,K-1}	 \\
-			\dfrac{u_0^{k}-u_0^{k-1}}{h_t} = \dfrac{2k}{c}\cdot\dfrac{u_1^k-2u_0^k+u_{-1}^k}{h_r^2} + \dfrac{\alpha}{cl}(u_c-u_0^k) \\
+			\dfrac{u_0^{k}-u_0^{k-1}}{h_t} = 2a^2\dfrac{u_1^k-2u_0^k+u_{-1}^k}{h_r^2} + \dfrac{\alpha}{cl}(u_c-u_0^k) \\
 			u_i^0 = u_b + J_0\left( \dfrac{\mu_1 ih_r}{R} \right) \\
 			i = \overline{0, I-1} \\
 			u_I^k = u_b \\
@@ -337,11 +337,11 @@
 		u_{-1} = u_1
 	\end{equation*}
 	В соответствии с этим получим:
-	\begin{equation}
+	\begin{equation}\label{ImplicitScheme}
 		\left\{\begin{array}{l}
 			\dfrac{u_i^{k}-u_i^{k-1}}{h_t} = a^2\left(\dfrac{1}{ih_r}\dfrac{u_{i+1}^k - u_{i-1}^k}{2h_r} +\dfrac{u_{i+1}^k - 2u_i^k + u_{i-1}^k}{h^2_r}\right) + \dfrac{\alpha}{cl}\left (u_c - u_i^k \right) \\
 			i = \overline{1,I-1}, \quad k = \overline{0,K-1}	 \\
-			\dfrac{u_0^{k}-u_0^{k-1}}{h_t} = \dfrac{2k}{c}\cdot\dfrac{u_1^k-u_0^k}{h_r^2} + \dfrac{\alpha}{cl}(u_c-u_0^k) \\
+			\dfrac{u_0^{k}-u_0^{k-1}}{h_t} = 2a^2\dfrac{u_1^k-u_0^k}{h_r^2} + \dfrac{\alpha}{cl}(u_c-u_0^k) \\
 			u_i^0 = u_b + J_0\left( \dfrac{\mu_1 ih_r}{R} \right) \\
 			i = \overline{0, I-1} \\
 			u_I^k = u_b \\
@@ -349,7 +349,7 @@
 		\end{array}\right.
 	\end{equation}
 	
-	Перепишем эту схему в виде, удобном для решения дискретной задачи:
+	Перепишем первое уравнение этой схемы в виде, удобном для решения дискретной задачи:
 	\begin{equation*}
 		Au^k_{i-1} + Bu^k_i + Cu^k_{i+1} = Du_i^{k-1} + E
 	\end{equation*}
@@ -369,9 +369,115 @@
 	\end{equation*}
 	\begin{equation*}
 		E = - \dfrac{\alpha u_c h_t}{cl}
-	\end{equation*}	
-	\subsection{Исследование аппроксимации и устойчивости разностной схемы}
+	\end{equation*}
 	
+	Аналогично представим второе уравнение этой системы и коэффициенты $F$, $G$, $H$:
+	\begin{equation*}
+		u_0^k = Fu_0^{k-1} + Gu_1^k + H
+	\end{equation*}
+	\begin{equation*}
+		F = \dfrac{1}{1 + \dfrac{2a^2h_t}{h_r^2} + \dfrac{\alpha h_t}{cl}}
+	\end{equation*}
+	\begin{equation*}
+		G = \dfrac{\dfrac{2a^2h_t}{h_r}}{1 + \dfrac{2a^2h_t}{h_r^2} + \dfrac{\alpha h_t}{cl}}
+	\end{equation*}
+	\begin{equation*}
+		H = \dfrac{\dfrac{\alpha h_t}{cl}u_1^k}{1 + \dfrac{2a^2h_t}{h_r^2} + \dfrac{\alpha h_t}{cl}}
+	\end{equation*}
+	\newpage
+	\subsection{Исследование аппроксимации и устойчивости разностной схемы}
+	Систему уравнений \eqref{KoshiTask} можно представить в операторном виде:
+	\begin{equation}\label{OperatorViewKoshiTask}
+ 	\hat{L}u = \left\{\begin{array}{l}
+ 		\hat{L}^1u \\
+ 		\hat{L}^2u \\
+ 		\hat{L}^3u \\
+ 		\hat{L}^4u \\
+ 	\end{array}
+ 	\right\} = \left\{\begin{array}{c}
+ 		\left[\dfrac{\strut\partial}{\strut\partial t} - a^2\left( \dfrac{\strut 1}{\strut r}\dfrac{\strut \partial }{\strut \partial r} + \dfrac{\strut \partial^2}{\strut \partial r^2} + \dfrac{\strut \alpha}{\strut cl} \right)\right]u \\
+ 		\left[\dfrac{\strut \partial }{\strut \partial t} - 2a^2\dfrac{\strut\partial^2}{\strut\partial r^2} + \dfrac{\strut\alpha}{\strut cl}\right]u\\
+ 		u\vert_{t=0} \\
+ 		u\vert_{r=R} \\
+ 	\end{array}\right\}, f = \left\{\begin{array}{c}
+ 		\dfrac{\strut \alpha u_c}{\strut cl} \\
+ 		\dfrac{\strut \alpha u_c}{\strut cl} \\
+ 		u_c + J_0\left(\dfrac{\mu_1 r}{R}\right) \\
+ 		u_c
+ 	\end{array}\right\}
+	\end{equation}
+ 	Конечно -- разностная задача \eqref{ImplicitScheme} можно также представить в операторном виде:
+ 	\begin{equation}\label{OperatorViewImplicitScheme}
+ 	\hat{L}_hu_h = \left\{\begin{array}{l}
+ 	\hat{L}_h^1u \\
+ 	\hat{L}_h^2u \\
+ 	\hat{L}_h^3u \\
+ 	\hat{L}_h^4u \\
+ 	\end{array}
+ 	\right\} = \left\{\begin{array}{c}
+ 	\dfrac{u_i^{k}-u_i^{k-1}}{h_t} - a^2\left(\dfrac{1}{ih_r}\dfrac{u_{i+1}^k - u_{i-1}^k}{2h_r} +\dfrac{u_{i+1}^k - 2u_i^k + u_{i-1}^k}{h^2_r}\right) + \dfrac{\alpha}{cl}u_i^k \\
+ 	\dfrac{u_0^{k}-u_0^{k-1}}{h_t} - 2a^2\dfrac{u_1^k-u_0^k}{h_r^2} + \dfrac{\alpha}{cl}u_0^k\\
+ 	u_i^0 \\
+ 	u_N^k \\
+ 	\end{array}\right\}
+ 	\end{equation}
+ 	
+ 	\paragraph{Определение порядка аппроксимации.} Рассмотрим первый компонент вектора невязки
+ 	\begin{eqnarray}
+ 		\delta f^1_h = \left\{ L^1_h[u]_h - f^1_h \right\} _{(r_i, t_k)} = \dfrac{u(r_i, t_k) - u(r_i, t_{k-1})}{h_t} - \nonumber \\ - a^2\left( \dfrac{1}{ih_r}\dfrac{u(r_{i+1}, t_k) - u(r_{i-1}, t_k)}{2h_r} +\dfrac{u(r_{i+1}, t_k) - 2u(r_i, t_k) + u(r_{i-1}, t_k)}{h^2_r} \right) + \nonumber \\ + \dfrac{\alpha}{cl}u(r_i, t_k) - \dfrac{\alpha u_c}{cl}
+ 	\end{eqnarray}
+ 	
+ 	Воспользуемся разложением Тейлора для функции $u$:
+ 	\begin{equation*}
+	 	u(r_i, t_{k-1}) = u(r_i, t_k) - \dfrac{\partial u(r_i, t_k)}{\partial t}\dfrac{h_t}{1!} + \dfrac{\partial^2 u(r_i, t_k)}{\partial t^2}\dfrac{h_t^2}{2!} + O(h_t^3)
+ 	\end{equation*}
+ 	\begin{equation*}
+	 	u(r_{i-1}, t_{k}) = u(r_i, t_k) - \dfrac{\partial u(r_i, t_k)}{\partial r}\dfrac{h_r}{1!} + \dfrac{\partial^2 u(r_i, t_k)}{\partial r^2}\dfrac{h_r^2}{2!} + O(h_r^3)
+ 	\end{equation*}
+ 	\begin{equation*}
+	 	u(r_{i+1}, t_{k}) = u(r_i, t_k) + \dfrac{\partial u(r_i, t_k)}{\partial r}\dfrac{h_r}{1!} + \dfrac{\partial^2 u(r_i, t_k)}{\partial r^2}\dfrac{h_r^2}{2!} + O(h_r^3)
+ 	\end{equation*}
+ 	
+ 	Воспользуемся этими выражениями для $\delta f_h^1$:
+ 	\begin{eqnarray}
+ 		\delta f^1_h = \left\{\dfrac{u - u + u_th_t + - \dfrac{1}{2}u_{tt}h_t^2 + O(h_t^3)}{h_t} - a^2 \left( \dfrac{1}{ih_r}\dfrac{1}{2h_r} \left( u + u_rh_r+u_rrh_r^2/2 +  \right. \right. \right. \nonumber \\
+ 		\left.+ O(h^3) - u + u_rh_r -u_{rr}h_r^2/2 + O(h_r^3)\right) + \dfrac{1}{h_r^2}\left( u + u_rh_r + u_{rr}h_r^2/2 + \right. \nonumber \\ \left.\left. +  u_{rrr}h_r^3/6 + O(h_r^4) - 2u + u - u_r + u_{rr}h_r^2/2 - u_{rrr}h_r^3/6 + O(h_r^4) \right)\right) + \nonumber \\
+ 		\left.+  \dfrac{2\alpha}{cl}u - \dfrac{2\alpha}{cl}u_c\right\}_{(r_i, t_k)} \nonumber
+ 	\end{eqnarray}
+ 	
+ 	Осуществляем сокращения:
+ 	\begin{eqnarray}
+ 		\delta f_h^1 = \left\{ u_t + O(h_t) - a^2 \left( \dfrac{1}{ih_r}(u_r + O(h_r^2)) + u_{rr} + O(h^2) \right)  + \nonumber \right. \\ 
+ 		\left. +  \dfrac{2\alpha}{cl}u - \dfrac{2\alpha}{cl}u_c \right\}_{(r_i, t_k)} = \left\{ u_t + O(h_t) - a^2 \left( \dfrac{1}{ih_r}(u_r + O(h_r^2)) + u_{rr} + O(h^2) \right) -\right. \nonumber \\ \left. - u_t + a^2 \left( \dfrac{1}{ih_r}u_r + u_{rr} \right)\right\}_{(r_i, t_k)} = \left\{O(h_t) + a^2\left(\dfrac{1}{ih_r} + 1 \right)O(h_r^2)\right\}_{(r_i, t_k)} \nonumber
+ 	\end{eqnarray}
+ 	
+ 	Теперь рассмотрим второй компонент вектора невязки:
+ 	\begin{eqnarray}
+	 	\delta f^2_h = \left\{ L_h^2[u]_h - f^2_h \right\}_{(r_0, t_k)} = \dfrac{u(r_0, t_k) - u(r_0, t_{k-1})}{h_t} - 2a^2\dfrac{u(r_1, t_k) - u(r_0, t_k)}{h_r^2} + \nonumber \\
+	 	+ \dfrac{2\alpha}{cl}u(t_k, r_0) - \dfrac{2\alpha}{cl}u_c \nonumber
+ 	\end{eqnarray}
+ 	
+ 	Аналогично первому компоненту невязки воспользуемся соотношениями для разложения в ряд Тейлора:
+ 	\begin{eqnarray}
+ 		\delta f^2_h = \left\{ \dfrac{u - u + u_t - O(h_t^2)}{h_t} - 2a^2\dfrac{u+u_rh_r + u_{rr}h_r^2/2 + u_{rrr}h_r^3/6  + O(h_r^4) - u}{h_r^2} + \nonumber \right.  \\ 
+ 		\left.  + \dfrac{2\alpha}{cl}u - \dfrac{2\alpha}{cl}u_c\right\}_{(r_0, t_k)} \nonumber
+ 	\end{eqnarray}
+ 	
+ 	Таким же образом осуществляем сокращения:
+ 	\begin{eqnarray}
+	 	\delta f^2_h = \left\{ u_t + O(h_t) - 2a^2 \left(\dfrac{u_rh_r + u_{rr}h_r^2/2 + u_{rrr}h_r^3/6+O(h_r^4)}{h_r^2} \right) + \dfrac{2\alpha u}{cl} \right. \nonumber \\
+	 	\left. - u_t + 2a^2u_rr - \dfrac{2\alpha u}{cl} \right\}_{(r_0, t_k)} = \left\{ O(h_t) + 2a^2O(h_r^2)\right\}_{(r_0, t_k)} \nonumber
+ 	\end{eqnarray}
+ 	
+ 	Для третьей и четвертой компонент невязки получим:
+ 	\begin{equation*}
+	 	\delta f^3_h = \left\{ L_h^3[u]_h - f^3_h \right\}_{(r_i, t_0)} = u(r_i, t_0) - u(r_i, t_0) = 0
+ 	\end{equation*}
+ 	\begin{equation*}
+	 	\delta f^4_h = \left\{ L_h^2[u]_h - f^2_h \right\}_{(r_I, t_k)} = u(r_I, t_k) - u(r_I, t_k) = 0
+ 	\end{equation*}
+ 	
+ 	Таким образом дискретная задача \eqref{ImplicitScheme} аппроксимирует непрерывную задачу \eqref{KoshiTask} с первым порядком по времени и вторым порядком по координате.
 	\chapter{Лабораторная работа №2}
 	\section{Тема работы. Цель работы. Порядок выполнения работы}
 	\section{Описание этапов выполнения лабораторной работы}
