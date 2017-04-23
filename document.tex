@@ -13,11 +13,11 @@
 \usepackage{makecell}
 \usepackage{multirow} % улучшенное форматирование таблиц
 \usepackage{ulem} % подчеркивания
-\usepackage{pscyr}
-\usepackage{txfonts}
+%\usepackage{pscyr}
+%\usepackage{txfonts}
 \usepackage{longtable}
-\linespread{1.3} % полуторный интервал
-\renewcommand{\rmdefault}{ftm} % Times New Roman
+\linespread{1.15} % полуторный интервал
+%\renewcommand{\rmdefault}{ftm} % Times New Roman
 \frenchspacing
 
 %Нумерация страниц
@@ -110,6 +110,32 @@
 
 
 \begin{document}
+	\begin{center}
+		Федеральное государственное автономное образовательное учреждение \\
+		высшего образования \\
+		<<Самарский национальный исследовательский университет \\
+		имени академика С. П. Королева>>\\
+		\vspace{2cm}
+		Факультет информатики \\
+		\vspace{1cm}
+		Кафедра технической кибернетики \\
+		\vspace{3cm}
+		\textbf{Отчет по лабораторным работам №1 и №2} \\
+		по дисциплине <<Численные методы математической физики>> \\
+		\vspace{1cm}
+		Тема: \textbf{РЕШЕНИЕ КРАЕВЫХ ЗАДАЧ МАТЕМАТИЧЕСКОЙ ФИЗИКИ МЕТОДОМ КОНЕЧНЫХ РАЗНОСТЕЙ}\\
+		\vspace{1cm}
+		Вариант 9
+	\end{center}
+
+	\noindentВыполнил студент Барсков Н. М. \\
+	Группа 6406\\
+	Преподаватель Дегтярев А. А.
+	\vfill
+	\begin{center}
+		2017
+	\end{center}
+	\newpage
 	
 	\tableofcontents
 	
@@ -195,12 +221,9 @@
 	\begin{equation}\label{KoshiTask}
 	\left \{
 	\begin{array}{l}
-	\dfrac{\partial u}{\partial t} = a^2 \left ( \dfrac{1}{r}\dfrac{\partial u}{\partial r} + \dfrac{\partial^2 u}{\partial r^2}\right ) + \dfrac{\alpha}{cl}(u_b - u), 0 < r \leq R\\
-	\\
-	\dfrac{\partial u}{\partial t} = 2a^2 \dfrac{\partial^2 u}{\partial r^2} + \dfrac{\alpha}{cl}(u_c - u), r = 0 \\
-	\\
-	u(r, 0) = u_b + J_0\left(\dfrac{\mu_1 r}{R}\right), 0 \leq r \leq R \\
-	\\
+	\dfrac{\strut \partial u}{\strut \partial t} = a^2 \left ( \dfrac{\strut 1}{\strut r}\dfrac{\strut \partial u}{\strut \partial r} + \dfrac{\strut \partial^2 u}{\strut \partial r^2}\right ) + \dfrac{\strut \alpha}{\strut cl}(u_b - u), 0 < r \leq R\\
+	\dfrac{\strut \partial u}{\strut \partial t} = 2a^2 \dfrac{\strut \partial^2 u}{\strut \partial r^2} + \dfrac{\strut \alpha}{\strut cl}(u_c - u), r = 0 \\
+	u(r, 0) = u_b + J_0\left(\dfrac{\strut \mu_1 r}{\strut R}\right), 0 \leq r \leq R \\
 	u(R, t) = u_b, 0 \leq t \leq T
 	\end{array}
 	\right.
@@ -315,7 +338,6 @@
 	\begin{equation*}
 	\left.\dfrac{\partial^2 u}{\partial r^2}\right|_{(r_i, t_k)} = \dfrac{u_{i+1}^k - 2u_i^k + u_{i-1}^k}{h^2_r}, \quad i = \overline{1,I-1}, k = \overline{0,K}
 	\end{equation*}
-	
 	На основе этих соотношений построим неявную конечно-разностную схему:
 	\begin{equation*}
 		\left\{\begin{array}{l}
