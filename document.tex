@@ -1,5 +1,5 @@
 %\documentclass[a4paper,14pt,russian, leqno, fleqn]{extreport}
-\documentclass[a4paper,14pt,russian, fleqn]{extreport}
+\documentclass[a4paper,12pt,russian, fleqn]{extreport}
 \usepackage{extsizes}
 \usepackage{cmap} % для кодировки шрифтов в pdf
 \usepackage[T2A]{fontenc}
@@ -19,6 +19,8 @@
 \linespread{1.15} % полуторный интервал
 %\renewcommand{\rmdefault}{ftm} % Times New Roman
 \frenchspacing
+
+\usepackage[fleqn]{mathtools}
 
 %Нумерация страниц
 \usepackage{fancyhdr}
@@ -370,12 +372,10 @@
 			k = \overline{0,K}
 		\end{array}\right.
 	\end{equation}
-	
 	Перепишем первое уравнение этой схемы в виде, удобном для решения дискретной задачи:
 	\begin{equation*}
 		Au^k_{i-1} + Bu^k_i + Cu^k_{i+1} = Du_i^{k-1} + E
 	\end{equation*}
-	
 	Опуская промежуточные выкладки, запишем значения коэффициентов $A$, $B$, $C$, $D$, $E$, $F$:
 	\begin{equation*}
 		A = -\dfrac{a^2h_t}{2ih_r} + \dfrac{a^2h_t}{h_r^2}
@@ -443,60 +443,50 @@
  	u_N^k \\
  	\end{array}\right\}
  	\end{equation}
- 	
  	\paragraph{Определение порядка аппроксимации.} Рассмотрим первый компонент вектора невязки
- 	\begin{eqnarray}
- 		\delta f^1_h = \left\{ L^1_h[u]_h - f^1_h \right\} _{(r_i, t_k)} = \dfrac{u(r_i, t_k) - u(r_i, t_{k-1})}{h_t} - \nonumber \\ - a^2\left( \dfrac{1}{ih_r}\dfrac{u(r_{i+1}, t_k) - u(r_{i-1}, t_k)}{2h_r} +\dfrac{u(r_{i+1}, t_k) - 2u(r_i, t_k) + u(r_{i-1}, t_k)}{h^2_r} \right) + \nonumber \\ + \dfrac{\alpha}{cl}u(r_i, t_k) - \dfrac{\alpha u_c}{cl}
- 	\end{eqnarray}
- 	
- 	Воспользуемся разложением Тейлора для функции $u$:
+ 	\begin{align}
+ 		& \delta f^1_h = \left\{ L^1_h[u]_h - f^1_h \right\} _{(r_i, t_k)} = \dfrac{u(r_i, t_k) - u(r_i, t_{k-1})}{h_t} - \nonumber \\ - 
+ 		& a^2\left( \dfrac{1}{ih_r}\dfrac{u(r_{i+1}, t_k) - u(r_{i-1}, t_k)}{2h_r} +\dfrac{u(r_{i+1}, t_k) - 2u(r_i, t_k) + u(r_{i-1}, t_k)}{h^2_r} \right) + \nonumber \\ 
+ 		& + \dfrac{\alpha}{cl}u(r_i, t_k) - \dfrac{\alpha u_c}{cl}
+ 	\end{align}
+ 	Воспользуемся разложением Тейлора для функции $u$, предварительно обозначив $u(r_i, t_k) \equiv u$, $\dfrac{\strut \partial^k u}{\strut \partial r^k} \equiv u^{(k)}_r$, $\dfrac{\strut \partial^k u}{\strut \partial t^{k}} \equiv u^{(k)}_t$:
  	\begin{equation*}
-	 	u(r_i, t_{k-1}) = u(r_i, t_k) - \dfrac{\partial u(r_i, t_k)}{\partial t}\dfrac{h_t}{1!} + \dfrac{\partial^2 u(r_i, t_k)}{\partial t^2}\dfrac{h_t^2}{2!} + O(h_t^3)
+	 	u(r_i, t_{k-1}) = u - u^{(1)}_t\dfrac{h_t}{1!} + u^{(2)}_t\dfrac{h^2_t}{2!} - u^{(3)}_t\dfrac{h^3_t}{3!} + u^{(4)}_t\dfrac{h^4_t}{4!} + O(h_t^5)
  	\end{equation*}
  	\begin{equation*}
-	 	u(r_{i-1}, t_{k}) = u(r_i, t_k) - \dfrac{\partial u(r_i, t_k)}{\partial r}\dfrac{h_r}{1!} + \dfrac{\partial^2 u(r_i, t_k)}{\partial r^2}\dfrac{h_r^2}{2!} + O(h_r^3)
+	 	u(r_{i-1}, t_{k}) = u - u^{(1)}_r\dfrac{h_r}{1!} + u^{(2)}_r\dfrac{h^2_r}{2!} - u^{(3)}_r\dfrac{h^3_r}{3!} + u^{(4)}_r\dfrac{h^4_r}{4!} - u^{(5)}_r\dfrac{h^5_r}{5!} + u^{(6)}_r\dfrac{h^6_r}{6!} + O(h_r^7)
  	\end{equation*}
  	\begin{equation*}
-	 	u(r_{i+1}, t_{k}) = u(r_i, t_k) + \dfrac{\partial u(r_i, t_k)}{\partial r}\dfrac{h_r}{1!} + \dfrac{\partial^2 u(r_i, t_k)}{\partial r^2}\dfrac{h_r^2}{2!} + O(h_r^3)
+		u(r_{i+1}, t_{k}) = u + u^{(1)}_r\dfrac{h_r}{1!} + u^{(2)}_r\dfrac{h^2_r}{2!} + u^{(3)}_r\dfrac{h^3_r}{3!} + u^{(4)}_r\dfrac{h^4_r}{4!} + u^{(5)}_r\dfrac{h^5_r}{5!} + u^{(6)}_r\dfrac{h^6_r}{6!} + O(h_r^7)
  	\end{equation*}
- 	
  	Воспользуемся этими выражениями для $\delta f_h^1$:
- 	\begin{eqnarray}
- 		\delta f^1_h = \left\{\dfrac{u - u + u_th_t + - \dfrac{1}{2}u_{tt}h_t^2 + O(h_t^3)}{h_t} - a^2 \left( \dfrac{1}{ih_r}\dfrac{1}{2h_r} \left( u + u_rh_r+u_rrh_r^2/2 +  \right. \right. \right. \nonumber \\
- 		\left.+ O(h^3) - u + u_rh_r -u_{rr}h_r^2/2 + O(h_r^3)\right) + \dfrac{1}{h_r^2}\left( u + u_rh_r + u_{rr}h_r^2/2 + \right. \nonumber \\ \left.\left. +  u_{rrr}h_r^3/6 + O(h_r^4) - 2u + u - u_r + u_{rr}h_r^2/2 - u_{rrr}h_r^3/6 + O(h_r^4) \right)\right) + \nonumber \\
- 		\left.+  \dfrac{2\alpha}{cl}u - \dfrac{2\alpha}{cl}u_c\right\}_{(r_i, t_k)} \nonumber
- 	\end{eqnarray}
- 	
+ 	\begin{align}
+ 		& \delta f_h^1 = \left\{ \dfrac{1}{h_t}\left( u - u + u^{(1)}_t\dfrac{h_t}{1!} - u^{(2)}_t\dfrac{h^2_t}{2!} + u^{(3)}_t\dfrac{h^3_t}{3!} - u^{(4)}_t\dfrac{h^4_t}{4!} + O(h_t^5) \right) - \nonumber \right. \\
+ 		& - a^2 \left( \dfrac{1}{ih_r} \dfrac{1}{2h_r} \left( u + u^{(1)}_r\dfrac{h_r}{1!} + u^{(2)}_r\dfrac{h^2_r}{2!} + u^{(3)}_r\dfrac{h^3_r}{3!} + u^{(4)}_r\dfrac{h^4_r}{4!} + u^{(5)}_r\dfrac{h^5_r}{5!} + \right. \right. \nonumber \\
+ 		& u^{(6)}_r\dfrac{h^6_r}{6!} + O(h_r^7) - u + u^{(1)}_r\dfrac{h_r}{1!} - u^{(2)}_r\dfrac{h^2_r}{2!} + u^{(3)}_r\dfrac{h^3_r}{3!} - u^{(4)}_r\dfrac{h^4_r}{4!} + u^{(5)}_r\dfrac{h^5_r}{5!} - \nonumber \\
+ 		& \left. \left. - u^{(6)}_r\dfrac{h^6_r}{6!} + O(h_r^7) \right) \right. + \dfrac{\strut 1}{\strut h_r^2}\left( u + u^{(1)}_r\dfrac{h_r}{1!} + u^{(2)}_r\dfrac{h^2_r}{2!} + u^{(3)}_r\dfrac{h^3_r}{3!} + u^{(4)}_r\dfrac{h^4_r}{4!} + \right. \nonumber
+ 	\end{align}
+ 	\begin{align}
+	 	& \left. + u^{(5)}_r\dfrac{h^5_r}{5!} + u^{(6)}_r\dfrac{h^6_r}{6!} + O(h_r^7) - 2u + u - u^{(1)}_r\dfrac{h_r}{1!} + u^{(2)}_r\dfrac{h^2_r}{2!} - u^{(3)}_r\dfrac{h^3_r}{3!} + u^{(4)}_r\dfrac{h^4_r}{4!} - \right. \nonumber \\
+	 	& \left. \left. \left. - u^{(5)}_r\dfrac{h^5_r}{5!} + u^{(6)}_r\dfrac{h^6_r}{6!} + O(h_r^7)  \right) \right) + \dfrac{\strut \alpha u}{\strut cl} - \dfrac{\strut \alpha u_c}{cl}\right\}_{(r_i, t_k)} \nonumber
+ 	\end{align}
  	Осуществляем сокращения:
- 	\begin{eqnarray}
- 		\delta f_h^1 = \left\{ u_t + O(h_t) - a^2 \left( \dfrac{1}{ih_r}(u_r + O(h_r^2)) + u_{rr} + O(h^2) \right)  + \nonumber \right. \\ 
- 		\left. +  \dfrac{2\alpha}{cl}u - \dfrac{2\alpha}{cl}u_c \right\}_{(r_i, t_k)} = \left\{ u_t + O(h_t) - a^2 \left( \dfrac{1}{ih_r}(u_r + O(h_r^2)) + u_{rr} + O(h^2) \right) -\right. \nonumber \\ \left. - u_t + a^2 \left( \dfrac{1}{ih_r}u_r + u_{rr} \right)\right\}_{(r_i, t_k)} = \left\{O(h_t) + a^2\left(\dfrac{1}{ih_r} + 1 \right)O(h_r^2)\right\}_{(r_i, t_k)} \nonumber
- 	\end{eqnarray}
+ 	\begin{align}
+ 		& \delta f_h^1 = \left\{ u_t - u_t^{(2)}\dfrac{\strut h_t}{\strut 2!} +  u_t^{(3)}\dfrac{\strut h_t^2}{\strut 3!} -  u_t^{(4)}\dfrac{\strut h_t^3}{\strut 4!} + O(h_t^4) - a^2 \left( \dfrac{1}{ih_r}\left(u_r^{(1)} + u_r^{(3)}\dfrac{\strut h_r^2}{\strut 2!} + u_r^{(5)}\dfrac{\strut h_r^4}{\strut 5!} + \right. \right. \right. \nonumber  \\ 
+ 		& \left. \left. + O(h_r^6) \right) \left. + 2u_r^{(2)}\dfrac{\strut 1}{2!} + 2u_r^{(4)}\dfrac{\strut 1}{\strut 4!} + O(h_r^6) \right) + \dfrac{2\alpha}{cl}u - \dfrac{2\alpha}{cl}u_c \right\}_{(r_i, t_k)}  \nonumber = \left\{ O(h_t) - O(h_r^2) \right\}_{(r_i, t_k)}
+ 	\end{align}
  	
- 	Теперь рассмотрим второй компонент вектора невязки:
- 	\begin{eqnarray}
-	 	\delta f^2_h = \left\{ L_h^2[u]_h - f^2_h \right\}_{(r_0, t_k)} = \dfrac{u(r_0, t_k) - u(r_0, t_{k-1})}{h_t} - 2a^2\dfrac{u(r_1, t_k) - u(r_0, t_k)}{h_r^2} + \nonumber \\
-	 	+ \dfrac{2\alpha}{cl}u(t_k, r_0) - \dfrac{2\alpha}{cl}u_c \nonumber
- 	\end{eqnarray}
- 	
- 	Аналогично первому компоненту невязки воспользуемся соотношениями для разложения в ряд Тейлора:
- 	\begin{eqnarray}
- 		\delta f^2_h = \left\{ \dfrac{u - u + u_t - O(h_t^2)}{h_t} - 2a^2\dfrac{u+u_rh_r + u_{rr}h_r^2/2 + u_{rrr}h_r^3/6  + O(h_r^4) - u}{h_r^2} + \nonumber \right.  \\ 
- 		\left.  + \dfrac{2\alpha}{cl}u - \dfrac{2\alpha}{cl}u_c\right\}_{(r_0, t_k)} \nonumber
- 	\end{eqnarray}
- 	
- 	Таким же образом осуществляем сокращения:
- 	\begin{eqnarray}
-	 	\delta f^2_h = \left\{ u_t + O(h_t) - 2a^2 \left(\dfrac{u_rh_r + u_{rr}h_r^2/2 + u_{rrr}h_r^3/6+O(h_r^4)}{h_r^2} \right) + \dfrac{2\alpha u}{cl} \right. \nonumber \\
-	 	\left. - u_t + 2a^2u_rr - \dfrac{2\alpha u}{cl} \right\}_{(r_0, t_k)} = \left\{ O(h_t) + 2a^2O(h_r^2)\right\}_{(r_0, t_k)} \nonumber
- 	\end{eqnarray}
+ 	Аналогичные результаты получим для второго компонента вектора невязки:
+ 	\begin{align}
+	 	\delta f^2_h = \left\{ L^2_h[u]_h - f^2_h \right\} _{(r_i, t_k)} = \left\{ O(h_t) + 2a^2O(h_r^2)\right\}_{(r_0, t_k)} \nonumber
+ 	\end{align}
  	
  	Для третьей и четвертой компонент невязки получим:
  	\begin{equation*}
-	 	\delta f^3_h = \left\{ L_h^3[u]_h - f^3_h \right\}_{(r_i, t_0)} = u(r_i, t_0) - u(r_i, t_0) = 0
+	 	\delta f^3_h = \left\{ L_h^3[u]_h - f^3_h \right\}_{(r_i, t_0)} = 0
  	\end{equation*}
  	\begin{equation*}
-	 	\delta f^4_h = \left\{ L_h^2[u]_h - f^2_h \right\}_{(r_I, t_k)} = u(r_I, t_k) - u(r_I, t_k) = 0
+	 	\delta f^4_h = \left\{ L_h^2[u]_h - f^2_h \right\}_{(r_I, t_k)} = 0
  	\end{equation*}
  	
  	Таким образом дискретная задача \eqref{ImplicitScheme} аппроксимирует непрерывную задачу \eqref{KoshiTask} с первым порядком по времени и вторым порядком по координате.

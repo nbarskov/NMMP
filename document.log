@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.18)  19 APR 2017 23:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.18)  23 APR 2017 23:16
 entering extended mode
 **./document.tex
 (document.tex
@@ -16,8 +16,8 @@ Applying: [2015/01/01] Make \] robust on input line 74.
 LaTeX Info: Redefining \] on input line 75.
 Already applied: [0000/00/00] Make \] robust on input line 83.
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\extsizes\size14.clo"
-File: size14.clo 1999/11/11 v1.4a NON-Standard LaTeX file (size option)
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\size12.clo"
+File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\exscale.sty"
 Package: exscale 2014/09/29 v2.1h Standard LaTeX package exscale
@@ -48,8 +48,8 @@ Package: extsizes 1996/10/08 v1.0 Non Standard LaTeX Package
 Package ExtSizes Warning: It is better to use one of the extsizes classes,
  if you can.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\extsizes\size14.clo"
-File: size14.clo 1999/11/11 v1.4a NON-Standard LaTeX file (size option)
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\size12.clo"
+File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 ))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\cmap\cmap.sty"
 Package: cmap 2008/03/06 v1.0h CMap support: searchable PDF
@@ -798,17 +798,50 @@ Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
 \c@LT@chunks=\count112
 \LT@p@ftn=\toks33
 )
+("C:\Program Files\MiKTeX 2.9\tex\latex\mathtools\mathtools.sty"
+Package: mathtools 2015/11/12 v1.18 mathematical typesetting tools
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\calc.sty"
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count113
+\calc@Bcount=\count114
+\calc@Adimen=\dimen133
+\calc@Bdimen=\dimen134
+\calc@Askip=\skip58
+\calc@Bskip=\skip59
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count115
+\calc@Cskip=\skip60
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\mathtools\mhsetup.sty"
+Package: mhsetup 2010/01/21 v1.2a programming setup (MH)
+)
+LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
+\g_MT_multlinerow_int=\count116
+\l_MT_multwidth_dim=\dimen135
+\origjot=\skip61
+\l_MT_shortvdotswithinadjustabove_dim=\dimen136
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen137
+\l_MT_above_intertext_sep=\dimen138
+\l_MT_below_intertext_sep=\dimen139
+\l_MT_above_shortintertext_sep=\dimen140
+\l_MT_below_shortintertext_sep=\dimen141
+)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\fancyhdr\fancyhdr.sty"
 Package: fancyhdr 2016/09/06 3.8 Extensive control of page headers and footers
-\fancy@headwidth=\skip58
-\f@ncyO@elh=\skip59
-\f@ncyO@erh=\skip60
-\f@ncyO@olh=\skip61
-\f@ncyO@orh=\skip62
-\f@ncyO@elf=\skip63
-\f@ncyO@erf=\skip64
-\f@ncyO@olf=\skip65
-\f@ncyO@orf=\skip66
+\fancy@headwidth=\skip62
+\f@ncyO@elh=\skip63
+\f@ncyO@erh=\skip64
+\f@ncyO@olh=\skip65
+\f@ncyO@orh=\skip66
+\f@ncyO@elf=\skip67
+\f@ncyO@erf=\skip68
+\f@ncyO@olf=\skip69
+\f@ncyO@orf=\skip70
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption.sty"
 Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
@@ -816,15 +849,15 @@ Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption3.sty"
 Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 67.
-\captionmargin=\dimen133
-\captionmargin@=\dimen134
-\captionwidth=\dimen135
-\caption@tempdima=\dimen136
-\caption@indent=\dimen137
-\caption@parindent=\dimen138
-\caption@hangindent=\dimen139
+\captionmargin=\dimen142
+\captionmargin@=\dimen143
+\captionwidth=\dimen144
+\caption@tempdima=\dimen145
+\caption@indent=\dimen146
+\caption@parindent=\dimen147
+\caption@hangindent=\dimen148
 )
-\c@ContinuedFloat=\count113
+\c@ContinuedFloat=\count117
 Package caption Info: longtable package is loaded.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\caption\ltcaption.sty"
@@ -832,85 +865,85 @@ Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
 ))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\caption\subcaption.sty"
 Package: subcaption 2016/05/22 v1.1-161 Sub-captions (AR)
-\c@subfigure=\count114
-\c@subtable=\count115
+\c@subfigure=\count118
+\c@subtable=\count119
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\titlesec\titlesec.sty"
 Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
 \ttl@box=\box35
-\beforetitleunit=\skip67
-\aftertitleunit=\skip68
-\ttl@plus=\dimen140
-\ttl@minus=\dimen141
+\beforetitleunit=\skip71
+\aftertitleunit=\skip72
+\ttl@plus=\dimen149
+\ttl@minus=\dimen150
 \ttl@toksa=\toks34
-\titlewidth=\dimen142
-\titlewidthlast=\dimen143
-\titlewidthfirst=\dimen144
+\titlewidth=\dimen151
+\titlewidthlast=\dimen152
+\titlewidthfirst=\dimen153
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\enumitem\enumitem.sty"
 Package: enumitem 2011/09/28 v3.5.2 Customized lists
-\labelindent=\skip69
-\enit@outerparindent=\dimen145
+\labelindent=\skip73
+\enit@outerparindent=\dimen154
 \enit@toks=\toks35
 \enit@inbox=\box36
-\enitdp@description=\count116
+\enitdp@description=\count120
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tocloft\tocloft.sty"
 Package: tocloft 2013/05/02 v2.3f parameterised ToC, etc., typesetting
 Package tocloft Info: The document has chapter divisions on input line 44.
-\cftparskip=\skip70
-\cftbeforetoctitleskip=\skip71
-\cftaftertoctitleskip=\skip72
-\cftbeforepartskip=\skip73
-\cftpartnumwidth=\skip74
-\cftpartindent=\skip75
-\cftbeforechapskip=\skip76
-\cftchapindent=\skip77
-\cftchapnumwidth=\skip78
-\cftbeforesecskip=\skip79
-\cftsecindent=\skip80
-\cftsecnumwidth=\skip81
-\cftbeforesubsecskip=\skip82
-\cftsubsecindent=\skip83
-\cftsubsecnumwidth=\skip84
-\cftbeforesubsubsecskip=\skip85
-\cftsubsubsecindent=\skip86
-\cftsubsubsecnumwidth=\skip87
-\cftbeforeparaskip=\skip88
-\cftparaindent=\skip89
-\cftparanumwidth=\skip90
-\cftbeforesubparaskip=\skip91
-\cftsubparaindent=\skip92
-\cftsubparanumwidth=\skip93
-\cftbeforeloftitleskip=\skip94
-\cftafterloftitleskip=\skip95
-\cftbeforefigskip=\skip96
-\cftfigindent=\skip97
-\cftfignumwidth=\skip98
-\c@lofdepth=\count117
-\c@lotdepth=\count118
-\cftbeforelottitleskip=\skip99
-\cftafterlottitleskip=\skip100
-\cftbeforetabskip=\skip101
-\cfttabindent=\skip102
-\cfttabnumwidth=\skip103
+\cftparskip=\skip74
+\cftbeforetoctitleskip=\skip75
+\cftaftertoctitleskip=\skip76
+\cftbeforepartskip=\skip77
+\cftpartnumwidth=\skip78
+\cftpartindent=\skip79
+\cftbeforechapskip=\skip80
+\cftchapindent=\skip81
+\cftchapnumwidth=\skip82
+\cftbeforesecskip=\skip83
+\cftsecindent=\skip84
+\cftsecnumwidth=\skip85
+\cftbeforesubsecskip=\skip86
+\cftsubsecindent=\skip87
+\cftsubsecnumwidth=\skip88
+\cftbeforesubsubsecskip=\skip89
+\cftsubsubsecindent=\skip90
+\cftsubsubsecnumwidth=\skip91
+\cftbeforeparaskip=\skip92
+\cftparaindent=\skip93
+\cftparanumwidth=\skip94
+\cftbeforesubparaskip=\skip95
+\cftsubparaindent=\skip96
+\cftsubparanumwidth=\skip97
+\cftbeforeloftitleskip=\skip98
+\cftafterloftitleskip=\skip99
+\cftbeforefigskip=\skip100
+\cftfigindent=\skip101
+\cftfignumwidth=\skip102
+\c@lofdepth=\count121
+\c@lotdepth=\count122
+\cftbeforelottitleskip=\skip103
+\cftafterlottitleskip=\skip104
+\cftbeforetabskip=\skip105
+\cfttabindent=\skip106
+\cfttabnumwidth=\skip107
 ) (document.aux)
 \openout1 = `document.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 112.
-LaTeX Font Info:    ... okay on input line 112.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 112.
-LaTeX Font Info:    ... okay on input line 112.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 112.
-LaTeX Font Info:    ... okay on input line 112.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 112.
-LaTeX Font Info:    ... okay on input line 112.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 112.
-LaTeX Font Info:    ... okay on input line 112.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 112.
-LaTeX Font Info:    ... okay on input line 112.
-LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 112.
-LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -931,12 +964,12 @@ LaTeX Font Info:    ... okay on input line 112.
 * \topmargin=-15.36449pt
 * \headheight=17.0pt
 * \headsep=0.0pt
-* \topskip=14.0pt
+* \topskip=12.0pt
 * \footskip=0.0pt
-* \marginparwidth=15.0pt
+* \marginparwidth=35.0pt
 * \marginparsep=10.0pt
 * \columnsep=10.0pt
-* \skip\footins=12.0pt plus 4.0pt minus 2.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -948,16 +981,16 @@ LaTeX Font Info:    ... okay on input line 112.
 
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count119
-\scratchdimen=\dimen146
+\scratchcounter=\count123
+\scratchdimen=\dimen155
 \scratchbox=\box37
-\nofMPsegments=\count120
-\nofMParguments=\count121
+\nofMPsegments=\count124
+\nofMParguments=\count125
 \everyMPshowfont=\toks36
-\MPscratchCnt=\count122
-\MPscratchDim=\dimen147
-\MPnumerator=\count123
-\makeMPintoPDFobject=\count124
+\MPscratchCnt=\count126
+\MPscratchDim=\dimen156
+\MPnumerator=\count127
+\makeMPintoPDFobject=\count128
 \everyMPtoPDFconversion=\toks37
 ) ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
 Package: pdftexcmds 2016/05/21 v0.22 Utility functions of pdfTeX for LuaTeX (HO
@@ -1021,77 +1054,52 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
  [6]
 {\cyrillictext \CYRG \cyrl \cyra \cyrv \cyra } 1.
-[7
 
-]
-
-LaTeX Warning: Command \cyrs invalid in math mode on input line 162.
+LaTeX Warning: Command \cyrs invalid in math mode on input line 164.
 
 Missing character: There is no с in font cmr12!
-[8] [9] [10] [11] [12] [13]
-Overfull \hbox (6.01442pt too wide) detected at line 430
- $[]\OML/cmm/m/it/14.4 u \OT1/cmr/m/n/14.4 = [] = [] \OML/cmm/m/it/14.4 ; f \OT
-1/cmr/m/n/14.4 = []$  
+[7
+
+] [8] [9]
+Overfull \hbox (2.07281pt too wide) in paragraph at lines 313--314
+[]\T2A/cmr/m/n/12 Решение урав-не-ния $\OML/cmm/m/it/12 J[]\OT1/cmr/m/n/12 (\OM
+L/cmm/m/it/12 \OT1/cmr/m/n/12 ) = 0$\T2A/cmr/m/n/12 , най-дем при по-мо-щи ма-
+те-ма-ти-че-ско-го па-ке-та $\OML/cmm/m/it/12 [] \OT1/cmr/m/n/12 = 2\OML/cmm/m
+/it/12 :\OT1/cmr/m/n/12 4048255$\T2A/cmr/m/n/12 . 
  []
 
-
-Overfull \hbox (40.03432pt too wide) detected at line 445
- $[]\OML/cmm/m/it/14.4 u[] \OT1/cmr/m/n/14.4 = [] = []$  
- []
-
-
-Overfull \hbox (3.0865pt too wide) in alignment at lines 464--468
- [][][] []
- []
-
-[14]
-Overfull \hbox (0.68968pt too wide) in paragraph at lines 482--483
-[]\T2A/cmr/m/n/14.4 Аналогично пер-во-му ком-по-нен-ту невяз-ки вос-поль-зу-ем-
-ся со-от-но-ше-ни-я-ми для
- []
-
-
-Overfull \hbox (8.05133pt too wide) in alignment at lines 483--486
- [][][] []
- []
-
-[15] [16]
+[10] [11] [12] [13] [14]
 {\cyrillictext \CYRG \cyrl \cyra \cyrv \cyra } 2.
 
-Overfull \hbox (9.00757pt too wide) in paragraph at lines 507--507
- |[]\T2A/cmr/bx/n/14.4 Экспериментальное ис-сле-до-ва-ние фак-ти-че-ской ско-ро
--сти схо-
- []
-
-
-Package caption Warning: Unused \captionsetup[figure] on input line 45.
+Package caption Warning: Unused \captionsetup[figure] on input line 47.
 See the caption package documentation for explanation.
 
-[17
+[15
 
 ] (document.aux) ) 
 Here is how much of TeX's memory you used:
- 7219 strings out of 493333
- 100291 string characters out of 3139188
- 192163 words of memory out of 3000000
- 10574 multiletter control sequences out of 15000+200000
- 9572 words of font info for 30 fonts, out of 3000000 for 9000
+ 7775 strings out of 493333
+ 109823 string characters out of 3139188
+ 210984 words of memory out of 3000000
+ 11111 multiletter control sequences out of 15000+200000
+ 12415 words of font info for 38 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,12n,46p,1428b,348s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 39i,12n,46p,1428b,388s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\barskov\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\l
 h\lh-t2a\dpi600\larm1000.pk> <C:\Users\barskov\AppData\Local\MiKTeX\2.9\fonts\p
-k\ljfour\lh\lh-t2a\dpi600\labx1440.pk> <C:\Users\barskov\AppData\Local\MiKTeX\2
-.9\fonts\pk\ljfour\unknown\unknown\dpi600\larm1440.pk><C:/Program Files/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.p
-fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Pro
-gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on document.pdf (13 pages, 177011 bytes).
+k\ljfour\lh\lh-t2a\dpi600\labx1200.pk> <C:\Users\barskov\AppData\Local\MiKTeX\2
+.9\fonts\pk\ljfour\lh\lh-t2a\dpi600\larm1200.pk><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on document.pdf (11 pages, 180421 bytes).
 PDF statistics:
- 237 PDF objects out of 1000 (max. 8388607)
+ 235 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
