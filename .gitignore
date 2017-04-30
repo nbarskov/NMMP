@@ -1,6 +1,7 @@
-img/
-*.pdf
-*.aux
-*.txt
-*.toc
-*.synctex.gz
+/report/img/
+/report/*.pdf
+/report/*.aux
+/report/*.txt
+/report/*.toc
+/report/*.synctex.gz
+/program/build-nmmp-Desktop_Qt_5_8_0_MinGW_32bit-Debug

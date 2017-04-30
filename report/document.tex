@@ -1,4 +1,4 @@
-%\documentclass[a4paper,14pt,russian, leqno, fleqn]{extreport}
+ggvfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvb%\documentclass[a4paper,14pt,russian, leqno, fleqn]{extreport}
 \documentclass[a4paper,12pt,russian, fleqn]{extreport}
 \usepackage{extsizes}
 \usepackage{cmap} % для кодировки шрифтов в pdf
@@ -344,7 +344,7 @@
 	\begin{equation*}
 		\left\{\begin{array}{l}
 			\dfrac{u_i^{k}-u_i^{k-1}}{h_t} = a^2\left(\dfrac{1}{ih_r}\dfrac{u_{i+1}^k - u_{i-1}^k}{2h_r} +\dfrac{u_{i+1}^k - 2u_i^k + u_{i-1}^k}{h^2_r}\right) + \dfrac{\alpha}{cl}\left (u_c - u_i^k \right) \\
-			i = \overline{1,I-1}, \quad k = \overline{0,K-1}	 \\
+			i = \overline{1,I-1}, \quad k = \overline{1,K}	 \\
 			\dfrac{u_0^{k}-u_0^{k-1}}{h_t} = 2a^2\dfrac{u_1^k-2u_0^k+u_{-1}^k}{h_r^2} + \dfrac{\alpha}{cl}(u_c-u_0^k) \\
 			u_i^0 = u_b + J_0\left( \dfrac{\mu_1 ih_r}{R} \right) \\
 			i = \overline{0, I-1} \\
@@ -364,7 +364,7 @@
 	\begin{equation}\label{ImplicitScheme}
 		\left\{\begin{array}{l}
 			\dfrac{u_i^{k}-u_i^{k-1}}{h_t} = a^2\left(\dfrac{1}{ih_r}\dfrac{u_{i+1}^k - u_{i-1}^k}{2h_r} +\dfrac{u_{i+1}^k - 2u_i^k + u_{i-1}^k}{h^2_r}\right) + \dfrac{\alpha}{cl}\left (u_c - u_i^k \right) \\
-			i = \overline{1,I-1}, \quad k = \overline{0,K-1}	 \\
+			i = \overline{1,I-1}, \quad k = \overline{1,K}	 \\
 			\dfrac{u_0^{k}-u_0^{k-1}}{h_t} = 2a^2\dfrac{u_1^k-u_0^k}{h_r^2} + \dfrac{\alpha}{cl}(u_c-u_0^k) \\
 			u_i^0 = u_b + J_0\left( \dfrac{\mu_1 ih_r}{R} \right) \\
 			i = \overline{0, I-1} \\
