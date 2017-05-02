@@ -1,4 +1,4 @@
-ggvfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvb%\documentclass[a4paper,14pt,russian, leqno, fleqn]{extreport}
+%\documentclass[a4paper,14pt,russian, leqno, fleqn]{extreport}
 \documentclass[a4paper,12pt,russian, fleqn]{extreport}
 \usepackage{extsizes}
 \usepackage{cmap} % для кодировки шрифтов в pdf
@@ -22,20 +22,6 @@ ggvfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgf
 
 \usepackage[fleqn]{mathtools}
 
-%Нумерация страниц
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[R]{\thepage}
-\fancyheadoffset{0mm}
-\fancyfootoffset{0mm}
-\setlength{\headheight}{17pt}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
-\fancypagestyle{plain}{ 
-	\fancyhf{}
-	\rhead{\thepage}}
-\setcounter{page}{5} % начать нумерацию страниц с №5
 
 %Подписи таблиц
 \usepackage[tableposition=top]{caption}
@@ -112,6 +98,7 @@ ggvfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgf
 
 
 \begin{document}
+
 	\begin{center}
 		Федеральное государственное автономное образовательное учреждение \\
 		высшего образования \\
@@ -137,8 +124,8 @@ ggvfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgf
 	\begin{center}
 		2017
 	\end{center}
+	\thispagestyle{empty}
 	\newpage
-	
 	\tableofcontents
 	
 	\chapter{Лабораторная работа № 1}
@@ -223,8 +210,8 @@ ggvfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgf
 	\begin{equation}\label{KoshiTask}
 	\left \{
 	\begin{array}{l}
-	\dfrac{\strut \partial u}{\strut \partial t} = a^2 \left ( \dfrac{\strut 1}{\strut r}\dfrac{\strut \partial u}{\strut \partial r} + \dfrac{\strut \partial^2 u}{\strut \partial r^2}\right ) + \dfrac{\strut \alpha}{\strut cl}(u_b - u), 0 < r \leq R\\
-	\dfrac{\strut \partial u}{\strut \partial t} = 2a^2 \dfrac{\strut \partial^2 u}{\strut \partial r^2} + \dfrac{\strut \alpha}{\strut cl}(u_c - u), r = 0 \\
+	\dfrac{\strut \partial u}{\strut \partial t} = \dfrac{\strut k}{\strut c} \left ( \dfrac{\strut 1}{\strut r}\dfrac{\strut \partial u}{\strut \partial r} + \dfrac{\strut \partial^2 u}{\strut \partial r^2}\right ) + \dfrac{\strut 2\alpha}{\strut cl}(u_b - u), 0 < r \leq R\\
+	\dfrac{\strut \partial u}{\strut \partial t} = \dfrac{\strut 2k}{\strut c} \dfrac{\strut \partial^2 u}{\strut \partial r^2} + \dfrac{\strut 2\alpha}{\strut cl}(u_c - u), r = 0 \\
 	u(r, 0) = u_b + J_0\left(\dfrac{\strut \mu_1 r}{\strut R}\right), 0 \leq r \leq R \\
 	u(R, t) = u_b, 0 \leq t \leq T
 	\end{array}
@@ -235,15 +222,15 @@ ggvfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgf
 	Рассмотрим систему \eqref{KoshiTask} в следующем виде:
 	\begin{equation}\label{KoshiTaskTestSolution}
 		\left \{\begin{array}{l}
-		\dfrac{\partial u}{\partial t} = a^2 \left ( \dfrac{1}{r}\dfrac{\partial u}{\partial r} + \dfrac{\partial^2 u}{\partial r^2}\right ) + \dfrac{\alpha}{cl}(u_b - u), 0 < r \leq R\\
+		\dfrac{\strut \partial u}{\strut \partial t} = \dfrac{\strut k}{\strut c} \left ( \dfrac{\strut 1}{\strut r}\dfrac{\strut \partial u}{\strut \partial r} + \dfrac{\strut \partial^2 u}{\strut \partial r^2}\right ) + \dfrac{2\strut \alpha}{\strut cl}(u_b - u), 0 < r \leq R\\
 		\\
-		u(r, 0) = u_b + J_0\left(\dfrac{\mu_1 r}{R}\right), 0 \leq r \leq R \\
+		u(r, 0) = u_b + J_0\left(\dfrac{\strut \mu_1 r}{\strut R}\right), 0 \leq r \leq R \\
 		\\
 		u(R, t) = u_b
 		\end{array}\right.
 	\end{equation}
 	
-	В этом уравнении $J_0 \left ( \dfrac{\mu_1 r}{R} \right)$ --- функция Бесселя нулевого порядка, а $\mu_1$ --- первый корень уравнения $J \left( \mu \right) = 0$.
+	В этом уравнении $J_0 \left ( \dfrac{\strut \mu_1 r}{\strut R} \right)$ --- функция Бесселя нулевого порядка, а $\mu_1$ --- первый корень уравнения $J \left( \mu \right) = 0$.
 	
 	Воспользуемся вспомогательной задачей на собственные значения уравнения Лапласа. Для начала, сделаем так чтобы граничные условия были однородными, для этого осуществим замену:
 	\begin{equation*}
@@ -253,9 +240,9 @@ ggvfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgf
 	Тогда задача \eqref{KoshiTaskTestSolution} будет выглядеть следующим образом
 	\begin{equation}\label{KoshiTaskTestSolutionUniform}
 	\left \{\begin{array}{l}
-	\dfrac{\partial v}{\partial t} = a^2 \left ( \dfrac{1}{r}\dfrac{\partial v}{\partial r} + \dfrac{\partial^2 v}{\partial r^2}\right ) - \dfrac{\alpha}{cl}v, 0 < r \leq R\\
+	\dfrac{\strut \partial v}{\strut \partial t} = a^2 \left ( \dfrac{\strut 1}{\strut 0r}\dfrac{\strut \partial v}{\strut \partial r} + \dfrac{\strut \partial^2 v}{\strut \partial r^2}\right ) - \dfrac{\strut \alpha}{\strut cl}v, 0 < r \leq R\\
 	\\
-	v(r, 0) = J_0\left(\dfrac{\mu_1 r}{R}\right), 0 \leq r \leq R \\
+	v(r, 0) = J_0\left(\dfrac{\strut \mu_1 r}{\strut R}\right), 0 \leq r \leq R \\
 	\\
 	v(R, t) = 0
 	\end{array}\right.
@@ -266,7 +253,7 @@ ggvfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgf
 	\hat{L}v = \lambda v
 	\end{equation*}
 	\begin{equation*}
-	\dfrac{1}{r}\dfrac{\partial v}{\partial r} + \dfrac{\partial^2 v}{\partial r^2} = \lambda v
+	\dfrac{1}{r}\dfrac{\strut \partial v}{\strut \partial r} + \dfrac{\strut \partial^2 v}{\strut \partial r^2} = \lambda v
 	\end{equation*}
 	
 	Это уравнение можно привести к уравнению Бесселя и записать его решение в следующем виде:
@@ -294,7 +281,7 @@ ggvfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgf
 	
 	Подставим разложение \eqref{LaplaceSolutionSeries} в первое уравнение системы \eqref{KoshiTaskTestSolutionUniform}
 	\begin{equation*}\label{key}
-	\dfrac{\partial C_i}{\partial t} = - \left ( \dfrac{\mu_i^2}{R^2}a^2 + \dfrac{\alpha}{cl} \right) C_i = -\gamma_i C_i \Rightarrow C_i = A_i \exp{\left( -\gamma_i t \right)}
+	\dfrac{\strut \partial C_i}{\strut \partial t} = - \left ( \dfrac{\strut \mu_i^2}{\strut R^2}\dfrac{\strut k}{\strut c} + \dfrac{\strut 2\alpha}{\strut cl} \right) C_i = -\gamma_i C_i \Rightarrow C_i = A_i \exp{\left( -\gamma_i t \right)}
 	\end{equation*}
 	
 	Подставим граничные условия для $C_i(t)$, получим
@@ -307,7 +294,7 @@ ggvfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgf
 	
 	Тогда решение системы \eqref{KoshiTaskTestSolutionUniform} запишется в виде:
 	\begin{equation*}
-		v(r,t) = \exp{\left[ \left ( \dfrac{\mu_1^2}{R^2}a^2 + \dfrac{\alpha}{cl} \right)t \right]}J_0 \left( \dfrac{\mu_1 r}{R}\right)
+		v(r,t) = \exp{\left[ - \left ( \dfrac{\strut \mu_1^2}{\strut R^2}\dfrac{\strut k}{\strut c} + \dfrac{\strut 2\alpha}{\strut cl} \right)t \right]}J_0 \left( \dfrac{\strut \mu_1 r}{\strut R}\right)
 	\end{equation*}
 	
 	Решение уравнения $J_0(\mu) = 0$, найдем при помощи математического пакета $\mu_1 = 2.4048255$.
@@ -324,10 +311,10 @@ ggvfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgf
 	
 	Значения шагов равномерной сетки можно найти из следующих соотношений:	
 	\begin{equation*}
-	h_r = \dfrac{R}{I}
+	h_r = \dfrac{\strut R}{\strut I}
 	\end{equation*}	
 	\begin{equation*}
-	h_t = \dfrac{T}{K}
+	h_t = \dfrac{\strut T}{\strut K}
 	\end{equation*}
 
 	И рассмотрим 4 разностных отношения для производных по времени и пространству:	
@@ -343,10 +330,10 @@ ggvfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgf
 	На основе этих соотношений построим неявную конечно-разностную схему:
 	\begin{equation*}
 		\left\{\begin{array}{l}
-			\dfrac{u_i^{k}-u_i^{k-1}}{h_t} = a^2\left(\dfrac{1}{ih_r}\dfrac{u_{i+1}^k - u_{i-1}^k}{2h_r} +\dfrac{u_{i+1}^k - 2u_i^k + u_{i-1}^k}{h^2_r}\right) + \dfrac{\alpha}{cl}\left (u_c - u_i^k \right) \\
+			\dfrac{\strut u_i^{k}-u_i^{k-1}}{\strut h_t} = \dfrac{\strut k}{\strut c}\left(\dfrac{\strut 1}{\strut ih_r}\dfrac{\strut u_{i+1}^k - u_{i-1}^k}{\strut 2h_r} +\dfrac{\strut u_{i+1}^k - 2u_i^k + u_{i-1}^k}{\strut h^2_r}\right) + \dfrac{\strut 2\alpha}{\strut cl}\left (u_c - u_i^k \right) \\
 			i = \overline{1,I-1}, \quad k = \overline{1,K}	 \\
-			\dfrac{u_0^{k}-u_0^{k-1}}{h_t} = 2a^2\dfrac{u_1^k-2u_0^k+u_{-1}^k}{h_r^2} + \dfrac{\alpha}{cl}(u_c-u_0^k) \\
-			u_i^0 = u_b + J_0\left( \dfrac{\mu_1 ih_r}{R} \right) \\
+			\dfrac{\strut u_0^{k}-u_0^{k-1}}{\strut h_t} = \dfrac{\strut 2k}{\strut c}\dfrac{\strut u_1^k-2u_0^k+u_{-1}^k}{\strut h_r^2} + \dfrac{\strut 2\alpha}{\strut cl}(u_c-u_0^k) \\
+			u_i^0 = u_b + J_0\left( \dfrac{\strut \mu_1 ih_r}{\strut R} \right) \\
 			i = \overline{0, I-1} \\
 			u_I^k = u_b \\
 		k = \overline{0,K}
@@ -354,19 +341,15 @@ ggvfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgf
 	\end{equation*}
 	В связи с радиальной симметрией запишем соотношение для первой пространственной производной:
 	\begin{equation*}
-		\dfrac{u_1 - u_{-1}}{h_r} = 0
-	\end{equation*}
-	Из этого соотношения получим:
-	\begin{equation*}
-		u_{-1} = u_1
+		\dfrac{\strut u_1 - u_{-1}}{h_r} = 0 \Rightarrow u_{-1} = u_1
 	\end{equation*}
 	В соответствии с этим получим:
 	\begin{equation}\label{ImplicitScheme}
 		\left\{\begin{array}{l}
-			\dfrac{u_i^{k}-u_i^{k-1}}{h_t} = a^2\left(\dfrac{1}{ih_r}\dfrac{u_{i+1}^k - u_{i-1}^k}{2h_r} +\dfrac{u_{i+1}^k - 2u_i^k + u_{i-1}^k}{h^2_r}\right) + \dfrac{\alpha}{cl}\left (u_c - u_i^k \right) \\
+			\dfrac{\strut u_i^{k}-u_i^{k-1}}{\strut h_t} = \dfrac{\strut k}{\strut c}\left(\dfrac{\strut 1}{\strut ih_r}\dfrac{\strut u_{i+1}^k - u_{i-1}^k}{\strut 2h_r} +\dfrac{\strut u_{i+1}^k - 2u_i^k + u_{i-1}^k}{\strut h^2_r}\right) + \dfrac{\strut 2\alpha}{\strut cl}\left (u_c - u_i^k \right) \\
 			i = \overline{1,I-1}, \quad k = \overline{1,K}	 \\
-			\dfrac{u_0^{k}-u_0^{k-1}}{h_t} = 2a^2\dfrac{u_1^k-u_0^k}{h_r^2} + \dfrac{\alpha}{cl}(u_c-u_0^k) \\
-			u_i^0 = u_b + J_0\left( \dfrac{\mu_1 ih_r}{R} \right) \\
+			\dfrac{\strut u_0^{k}-u_0^{k-1}}{\strut h_t} = \dfrac{\strut 2k}{\strut c}\dfrac{\strut u_1^k-u_0^k}{\strut h_r^2} + \dfrac{\strut 2\alpha}{\strut cl}(u_c-u_0^k) \\
+			u_i^0 = u_b + J_0\left( \dfrac{\strut \mu_1 ih_r}{\strut R} \right) \\
 			i = \overline{0, I-1} \\
 			u_I^k = u_b \\
 			k = \overline{0,K}
@@ -378,35 +361,37 @@ ggvfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgf
 	\end{equation*}
 	Опуская промежуточные выкладки, запишем значения коэффициентов $A$, $B$, $C$, $D$, $E$, $F$:
 	\begin{equation*}
-		A = -\dfrac{a^2h_t}{2ih_r} + \dfrac{a^2h_t}{h_r^2}
+		A = -\dfrac{\strut k h_t}{\strut 2ich_r^2} + \dfrac{\strut k h_t}{\strut c h_r^2}
 	\end{equation*}
 	\begin{equation*}
-		B = 1 - \dfrac{2h_ta^2}{h_r^2} - \dfrac{\alpha h_t}{cl}
+		B = - 1 - \dfrac{\strut 2 k h_t}{\strut h_r^2} - \dfrac{\strut 2 \alpha h_t}{\strut cl}
 	\end{equation*}
 	\begin{equation*}
-		C = \dfrac{a^2h_t}{2ih_r^2} + \dfrac{a^2h_t}{h_r^2}
+		C = \dfrac{\strut k h_t}{\strut 2ich_r^2} + \dfrac{\strut k h_t}{\strut c h_r^2}
 	\end{equation*}
 	\begin{equation*}
 		D = -1
 	\end{equation*}
 	\begin{equation*}
-		E = - \dfrac{\alpha u_c h_t}{cl}
+		E = - \dfrac{\strut 2\alpha u_c h_t}{\strut cl}
 	\end{equation*}
 	
 	Аналогично представим второе уравнение этой системы и коэффициенты $F$, $G$, $H$:
 	\begin{equation*}
-		u_0^k = Fu_0^{k-1} + Gu_1^k + H
+		Fu_0^k + Gu_1^{k} = Ju_0^{k-1} + L
 	\end{equation*}
 	\begin{equation*}
-		F = \dfrac{1}{1 + \dfrac{2a^2h_t}{h_r^2} + \dfrac{\alpha h_t}{cl}}
+		F = 1 + \dfrac{\strut 4kh_t}{\strut ch_r^2} + \dfrac{\strut 2\alpha h_t}{\strut cl}
 	\end{equation*}
 	\begin{equation*}
-		G = \dfrac{\dfrac{2a^2h_t}{h_r}}{1 + \dfrac{2a^2h_t}{h_r^2} + \dfrac{\alpha h_t}{cl}}
+		G = -\dfrac{\strut 4kh_t}{\strut ch_r^2}
 	\end{equation*}
 	\begin{equation*}
-		H = \dfrac{\dfrac{\alpha h_t}{cl}u_1^k}{1 + \dfrac{2a^2h_t}{h_r^2} + \dfrac{\alpha h_t}{cl}}
+		J = 1
 	\end{equation*}
-	\newpage
+	\begin{equation*}
+		L = \dfrac{\strut 2\alpha h_t}{\strut cl}u_c
+	\end{equation*}
 	\subsection{Исследование аппроксимации и устойчивости разностной схемы}
 	Систему уравнений \eqref{KoshiTask} можно представить в операторном виде:
 	\begin{equation}\label{OperatorViewKoshiTask}
@@ -475,12 +460,10 @@ ggvfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgf
  		& \delta f_h^1 = \left\{ u_t - u_t^{(2)}\dfrac{\strut h_t}{\strut 2!} +  u_t^{(3)}\dfrac{\strut h_t^2}{\strut 3!} -  u_t^{(4)}\dfrac{\strut h_t^3}{\strut 4!} + O(h_t^4) - a^2 \left( \dfrac{1}{ih_r}\left(u_r^{(1)} + u_r^{(3)}\dfrac{\strut h_r^2}{\strut 2!} + u_r^{(5)}\dfrac{\strut h_r^4}{\strut 5!} + \right. \right. \right. \nonumber  \\ 
  		& \left. \left. + O(h_r^6) \right) \left. + 2u_r^{(2)}\dfrac{\strut 1}{2!} + 2u_r^{(4)}\dfrac{\strut 1}{\strut 4!} + O(h_r^6) \right) + \dfrac{2\alpha}{cl}u - \dfrac{2\alpha}{cl}u_c \right\}_{(r_i, t_k)}  \nonumber = \left\{ O(h_t) - O(h_r^2) \right\}_{(r_i, t_k)}
  	\end{align}
- 	
  	Аналогичные результаты получим для второго компонента вектора невязки:
  	\begin{align}
 	 	\delta f^2_h = \left\{ L^2_h[u]_h - f^2_h \right\} _{(r_i, t_k)} = \left\{ O(h_t) + 2a^2O(h_r^2)\right\}_{(r_0, t_k)} \nonumber
- 	\end{align}
- 	
+ 	\end{align}	
  	Для третьей и четвертой компонент невязки получим:
  	\begin{equation*}
 	 	\delta f^3_h = \left\{ L_h^3[u]_h - f^3_h \right\}_{(r_i, t_0)} = 0
@@ -490,6 +473,52 @@ ggvfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgf
  	\end{equation*}
  	
  	Таким образом дискретная задача \eqref{ImplicitScheme} аппроксимирует непрерывную задачу \eqref{KoshiTask} с первым порядком по времени и вторым порядком по координате.
+ 	
+ 	\paragraph{Исследование устойчивости.} Для исследования устойчивости воспользуемся определением нормы в пространствах $U_h$ и $F_h$:
+ 	\begin{equation*}
+ 		\lvert\lvert u_h \rvert\rvert_{U_h} = \max\limits_{i=\overline{0,N-1}, k=\overline{1,K}} {\vert u_i^k \vert}
+ 	\end{equation*}
+ 	
+ 	\begin{equation*}
+ 		\lvert\lvert f_h \rvert\rvert_{F_h} = \max\left\{\max\limits_{i=\overline{0, N-1}}\vert \psi_i \vert, u_c, u_b \right\}
+ 	\end{equation*}
+ 	
+ 	\begin{equation*}
+ 	\left\{\begin{array}{l}
+ 	\dfrac{\strut u_i^{k}-u_i^{k-1}}{\strut h_t} = \dfrac{\strut k}{\strut c}\left(\dfrac{\strut 1}{\strut ih_r}\dfrac{\strut u_{i+1}^k - u_{i-1}^k}{\strut 2h_r} +\dfrac{\strut u_{i+1}^k - 2u_i^k + u_{i-1}^k}{\strut h^2_r}\right) + \dfrac{\strut 2\alpha}{\strut cl}\left (u_c - u_i^k \right) \\
+ 	i = \overline{1,I-1}, \quad k = \overline{1,K}	 \\
+ 	\dfrac{\strut u_0^{k}-u_0^{k-1}}{\strut h_t} = \dfrac{\strut 2k}{\strut c}\dfrac{\strut u_1^k-u_0^k}{\strut h_r^2} + \dfrac{\strut 2\alpha}{\strut cl}(u_c-u_0^k) \\
+ 	u_i^0 = u_b + J_0\left( \dfrac{\strut \mu_1 ih_r}{\strut R} \right) \\
+ 	i = \overline{0, I-1} \\
+ 	u_I^k = u_b \\
+ 	k = \overline{0,K}
+ 	\end{array}\right.
+ 	\end{equation*}
+ 	Рассмотрим первое уравнение этой системы:
+ 	\begin{align}
+		& \left(-\dfrac{\strut k h_t}{\strut 2ich_r^2} + \dfrac{\strut k h_t}{\strut c h_r^2}\right) u^k_{i-1} + \left(  - 1 - \dfrac{\strut 2 k h_t}{\strut h_r^2} - \dfrac{\strut 2 \alpha h_t}{\strut cl} \right)u^k_i + \left( \dfrac{\strut k h_t}{\strut 2ich_r^2} + \dfrac{\strut k h_t}{\strut c h_r^2} \right) u^k_{i+1} \nonumber \\ 
+		& = -u_i^{k-1} - \dfrac{\strut 2\alpha u_c h_t}{\strut cl} 	\nonumber	
+ 	\end{align}
+ 	\begin{align}
+	 	& \left(  - 1 - \dfrac{\strut 2 k h_t}{\strut h_r^2} - \dfrac{\strut 2 \alpha h_t}{\strut cl} \right)u^k_i = - \left( \dfrac{\strut k h_t}{\strut 2ich_r^2} + \dfrac{\strut k h_t}{\strut c h_r^2} \right) u^k_{i+1} -\left(-\dfrac{\strut k h_t}{\strut 2ich_r^2} + \dfrac{\strut k h_t}{\strut c h_r^2}\right) u^k_{i-1} - \nonumber \\
+		& = -u_i^{k-1} - \dfrac{\strut 2\alpha u_c h_t}{\strut cl} 	\nonumber	
+ 	\end{align}
+ 	Воспользуемся неравенством треугольника:
+ 	\begin{align}
+	 	& \left(  1 + \dfrac{\strut 2 k h_t}{\strut h_r^2} + \dfrac{\strut 2 \alpha h_t}{\strut cl} \right)\lvert u^k_i \rvert \leq \left( \dfrac{\strut k h_t}{\strut 2ich_r^2} + \dfrac{\strut k h_t}{\strut c h_r^2} \right) \lvert u^k_{i+1} \rvert +\left(-\dfrac{\strut k h_t}{\strut 2ich_r^2} + \dfrac{\strut k h_t}{\strut c h_r^2}\right) \lvert u^k_{i-1} \rvert + \nonumber \\
+	 	& + \lvert u_i^{k-1} \rvert + \dfrac{\strut 2\alpha h_t}{\strut cl}\lvert u_c \rvert 	\nonumber	
+ 	\end{align}
+ 	Запишем оценки
+	\begin{equation}
+		\left\{
+		\begin{array}{l}
+			\vert u_i^k \vert \leq \max\left\{\max\limits_{l = \overline{0, N-1}}\lvert u_l^k \rvert, \lvert u_b \rvert \right\}, i =\overline{1, N}, k = \overline{1, K} \\
+			\vert u_i^{k-1} \vert \leq \max\left\{\max\limits_{l = \overline{1, N-1}}\lvert u_l^{k-1} \rvert, \lvert u_b \rvert \right\}, i =\overline{1, N}, k = \overline{1, K} \\
+			\lvert u_c \rvert \leq \vert\vert f_h \vert\vert_{F_h}, i = \overline{1, N-1}, k = \overline{1,K}
+		\end{array}
+		\right.
+	\end{equation}
+	И подставим их в предыдущее неравенство
 	\chapter{Лабораторная работа №2}
 	\section{Тема работы. Цель работы. Порядок выполнения работы}
 	\section{Описание этапов выполнения лабораторной работы}

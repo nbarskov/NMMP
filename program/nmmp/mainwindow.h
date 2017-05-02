@@ -19,9 +19,15 @@ public:
     void compute_step();
     void fill_matrix();
     void fill_right_side();
+    void fill_begin();
+    void theoretical_graph();
+    void graph();
+    void solve();
 
 private slots:
     void on_run_computing_button_clicked();
+
+    void on_clear_graph_button_clicked();
 
 private:
     Ui::MainWindow *ui;
