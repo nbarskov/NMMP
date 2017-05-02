@@ -126,7 +126,6 @@ void MainWindow::graph() {
 }
 
 void MainWindow::solve() {
-            /* Прогонка */
     for (int k = 1; k < time_step_count + 1; k++) {
 
             double *a = new double[spatial_step_count + 1];
@@ -137,8 +136,6 @@ void MainWindow::solve() {
 
             a[1] = -udiagonal[0]/diagonal[0];
             b[1] = rightside[0]/diagonal[0];
-
-            //cout << "Help coefficients " << a[1] << " " << b[1] << endl;
 
             for (int i = 1; i < spatial_step_count; i++) {
                 a[i+1] = -udiagonal[i]/(diagonal[i] + ddiagonal[i]*a[i]);
