@@ -77,7 +77,7 @@ void MainWindow::fill_right_side() {
 void MainWindow::fill_begin() {
     solution = new double[spatial_step_count + 1];
     for (int i = 0; i < spatial_step_count; i++) {
-        solution[i] = 20 + j0(2.404825557*i*hr/radius);
+        solution[i] = borderside_temperature + j0(2.404825557*i*hr/radius);
     }
     solution[spatial_step_count] = borderside_temperature;
 
@@ -89,8 +89,8 @@ void MainWindow::graph() {
     {
       x[i] = i*hr;
       y0[i] = solution[i];
-      y1[i] = exp(-((2*heat_transfer)/(heat_capacity*thickness) + (heat_conductivity*2.404825557*2.404825557)/(heat_capacity*radius*radius)*time))*j0(2.404825557*i*hr/radius) + borderside_temperature;
-    }
+      y1[i] = theortical_solution[i]
+;    }
     // create graph and assign data to it:
     ui->qcustomplot->clearGraphs();
     ui->qcustomplot->addGraph();
@@ -105,8 +105,22 @@ void MainWindow::graph() {
     // set axes ranges, so we see all data:
     ui->qcustomplot->graph(0)->setName("Experiement");
     ui->qcustomplot->graph(1)->setName("Theory");
-    ui->qcustomplot->xAxis->setRange(0, 6.5);
-    ui->qcustomplot->yAxis->setRange(20, 21);
+    ui->qcustomplot->xAxis->setRange(0, radius);
+    double max1 = 0.0;
+    double max2 = 0.0;
+    for (int i = 0; i < spatial_step_count + 1; i++) {
+        if (solution[i]> max1) max1 = solution[i];
+    }
+
+    for (int i = 0; i < spatial_step_count + 1; i++) {
+        if (theortical_solution[i]> max1) max2 = theortical_solution[i];
+    }
+
+    if (max1 > max2) {
+        ui->qcustomplot->yAxis->setRange(borderside_temperature, max1);
+    } else {
+        ui->qcustomplot->yAxis->setRange(borderside_temperature, max2);
+    }
     ui->qcustomplot->legend->setVisible(true);
     ui->qcustomplot->replot();
 }
@@ -164,14 +178,18 @@ void MainWindow::on_run_computing_button_clicked()
 
     fill_right_side();
 
+    theory();
+
     solve();
 
     //theoretical_graph();
     graph();
 }
 
-void MainWindow::on_clear_graph_button_clicked()
-{
-    ui->qcustomplot->graph(0)->data().clear();
-    ui->qcustomplot->graph(1)->data().clear();
+void MainWindow::theory() {
+    theortical_solution = new double[spatial_step_count + 1];
+
+    for (int i = 0; i < spatial_step_count + 1; i++) {
+        theortical_solution[i] = exp(-((2*heat_transfer)/(heat_capacity*thickness) + (heat_conductivity*2.404825557*2.404825557)/(heat_capacity*radius*radius))*time)*j0(2.404825557*i*hr/radius) + borderside_temperature;
+    }
 }

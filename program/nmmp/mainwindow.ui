@@ -282,22 +282,6 @@
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="clear_graph_button">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>450</y>
-      <width>221</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Очистить график</string>
-    </property>
-    <property name="checkable">
-     <bool>false</bool>
-    </property>
-   </widget>
    <widget class="QCustomPlot" name="qcustomplot" native="true">
     <property name="geometry">
      <rect>

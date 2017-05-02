@@ -503,12 +503,10 @@
 	 	& \left(  - 1 - \dfrac{\strut 2 k h_t}{\strut h_r^2} - \dfrac{\strut 2 \alpha h_t}{\strut cl} \right)u^k_i = - \left( \dfrac{\strut k h_t}{\strut 2ich_r^2} + \dfrac{\strut k h_t}{\strut c h_r^2} \right) u^k_{i+1} -\left(-\dfrac{\strut k h_t}{\strut 2ich_r^2} + \dfrac{\strut k h_t}{\strut c h_r^2}\right) u^k_{i-1} - \nonumber \\
 		& = -u_i^{k-1} - \dfrac{\strut 2\alpha u_c h_t}{\strut cl} 	\nonumber	
  	\end{align}
- 	Воспользуемся неравенством треугольника:
  	\begin{align}
 	 	& \left(  1 + \dfrac{\strut 2 k h_t}{\strut h_r^2} + \dfrac{\strut 2 \alpha h_t}{\strut cl} \right)\lvert u^k_i \rvert \leq \left( \dfrac{\strut k h_t}{\strut 2ich_r^2} + \dfrac{\strut k h_t}{\strut c h_r^2} \right) \lvert u^k_{i+1} \rvert +\left(-\dfrac{\strut k h_t}{\strut 2ich_r^2} + \dfrac{\strut k h_t}{\strut c h_r^2}\right) \lvert u^k_{i-1} \rvert + \nonumber \\
 	 	& + \lvert u_i^{k-1} \rvert + \dfrac{\strut 2\alpha h_t}{\strut cl}\lvert u_c \rvert 	\nonumber	
  	\end{align}
- 	Запишем оценки
 	\begin{equation}
 		\left\{
 		\begin{array}{l}
@@ -518,7 +516,34 @@
 		\end{array}
 		\right.
 	\end{equation}
-	И подставим их в предыдущее неравенство
+	\begin{align}
+		& \left(  1 + \dfrac{\strut 2 k h_t}{\strut h_r^2} + \dfrac{\strut 2 \alpha h_t}{\strut cl} \right)\lvert u^k_i \rvert \leq \left( \dfrac{\strut k h_t}{\strut 2ich_r^2} + \dfrac{\strut k h_t}{\strut c h_r^2} \right)\max\left\{\max\limits_{l = \overline{0, N-1}}\lvert u_l^k \rvert, \lvert u_b \rvert \right\} + \nonumber \\ 
+		& + \left(-\dfrac{\strut k h_t}{\strut 2ich_r^2} + \dfrac{\strut k h_t}{\strut c h_r^2}\right) \max\left\{\max\limits_{l = \overline{0, N-1}}\lvert u_l^k \rvert, \lvert u_b \rvert \right\} + \max\left\{\max\limits_{l = \overline{1, N-1}}\lvert u_l^{k-1} \rvert, \lvert u_b \rvert \right\} + \dfrac{\strut 2\alpha h_t}{\strut cl}\lvert \lvert f_h \rvert\rvert_{F_h} 	\nonumber	
+	\end{align}
+	\begin{align}
+		& \left(  1 + \dfrac{\strut 2 k h_t}{\strut h_r^2} + \dfrac{\strut 2 \alpha h_t}{\strut cl} \right)\lvert u^k_i \rvert \leq \dfrac{\strut 2 k h_t}{\strut ch_r^2} \max\left\{\max\limits_{l = \overline{0, N-1}}\lvert u_l^k \rvert, \lvert u_b \rvert \right\} + \dfrac{\strut 2\alpha h_t}{\strut cl}\lvert \lvert f_h \rvert\rvert_{F_h} + \nonumber \\
+		& + \max\left\{\max\limits_{l = \overline{1, N-1}}\lvert u_l^{k-1} \rvert, \lvert u_b \rvert \right\} \nonumber
+	\end{align}
+	\begin{align}
+		& \left(  1 + \dfrac{\strut 2 k h_t}{\strut h_r^2} + \dfrac{\strut 2 \alpha h_t}{\strut cl} \right) \max\limits_{i=\overline{0, N-1}} \lvert u^k_i \rvert \leq \dfrac{\strut 2 k h_t}{\strut ch_r^2} \max\left\{\max\limits_{l = \overline{0, N-1}}\lvert u_l^k \rvert, \lvert u_b \rvert \right\} + \nonumber \\ 
+		& + \dfrac{\strut 2\alpha h_t}{\strut cl}\lvert \lvert f_h \rvert\rvert_{F_h} + \max\left\{\max\limits_{l = \overline{1, N-1}}\lvert u_l^{k-1} \rvert, \lvert u_b \rvert \right\}
+	\end{align}	
+	
+	Аналогичным образом рассмотрим второе уравнение системы:
+	\begin{align}
+		\left( 1 + \dfrac{\strut 4kh_t}{\strut ch_r^2} + \dfrac{\strut 2\alpha h_t}{\strut cl} \right)u_0^k = \left(\dfrac{\strut 4kh_t}{\strut ch_r^2}\right)u_1^{k} + u_0^{k-1} + \dfrac{\strut 2\alpha h_t}{\strut cl}u_c \nonumber
+	\end{align}
+	\begin{align}
+		\left( 1 + \dfrac{\strut 4kh_t}{\strut ch_r^2} + \dfrac{\strut 2\alpha h_t}{\strut cl} \right)\lvert u_0^k \rvert \leq \left(\dfrac{\strut 4kh_t}{\strut ch_r^2}\right) \lvert u_1^{k} \rvert + \lvert u_0^{k-1} \rvert + \dfrac{\strut 2\alpha h_t}{\strut cl} \lvert u_c \rvert \nonumber
+	\end{align}
+	\begin{align}
+		& \left( 1 + \dfrac{\strut 4kh_t}{\strut ch_r^2} + \dfrac{\strut 2\alpha h_t}{\strut cl} \right)\lvert u_0^k \rvert \leq \left(\dfrac{\strut 4kh_t}{\strut ch_r^2}\right) \max\left\{\max\limits_{l = \overline{0, N-1}}\lvert u_l^k \rvert, \lvert u_b \rvert \right\} + \nonumber \\
+		& + \max\left\{\max\limits_{l = \overline{1, N-1}}\lvert u_l^{k-1} \rvert, \lvert u_b \rvert \right\} + \dfrac{\strut 2\alpha h_t}{\strut cl} \lvert\lvert f_h \rvert\rvert_{F_h} \nonumber
+	\end{align}
+	\begin{align}
+		& \left( 1 + \dfrac{\strut 4kh_t}{\strut ch_r^2} + \dfrac{\strut 2\alpha h_t}{\strut cl} \right)\max\limits_{i=\overline{0,i}}\lvert u^k_i\rvert \leq \left(\dfrac{\strut 4kh_t}{\strut ch_r^2}\right) \max\left\{\max\limits_{l = \overline{0, N-1}}\lvert u_l^k \rvert, \lvert u_b \rvert \right\} + \nonumber \\
+		& + \max\left\{\max\limits_{l = \overline{1, N-1}}\lvert u_l^{k-1} \rvert, \lvert u_b \rvert \right\} + \dfrac{\strut 2\alpha h_t}{\strut cl} \lvert\lvert f_h \rvert\rvert_{F_h} \nonumber
+	\end{align}
 	\chapter{Лабораторная работа №2}
 	\section{Тема работы. Цель работы. Порядок выполнения работы}
 	\section{Описание этапов выполнения лабораторной работы}

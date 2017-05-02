@@ -23,6 +23,7 @@ public:
     void theoretical_graph();
     void graph();
     void solve();
+    void theory();
 
 private slots:
     void on_run_computing_button_clicked();
@@ -44,6 +45,7 @@ private:
 
     // Solution array
     double *solution;
+    double *theortical_solution;
 
     // System parameters
    double radius;
