@@ -167,6 +167,35 @@ void MainWindow::solve() {
     cout << "Error: " << spatial_step_count << " " << time_step_count << " " << eps << endl;
 }
 
+void MainWindow::write_file() {
+
+    QString theory_file_name = "theory" + QString::number(time_step_count) + "_" + QString::number(spatial_step_count) + ".csv";
+    QFile theory_file_out(theory_file_name);
+
+    if(theory_file_out.open(QIODevice::WriteOnly | QIODevice::Text))
+        { // Если файл успешно открыт для записи в текстовом режиме
+            QTextStream write_stream(&theory_file_out); // Создаем объект класса QTextStream
+    // и передаем ему адрес объекта fileOut
+            for (int i = 0; i < spatial_step_count + 1; i++) {
+                write_stream << i*hr << ";" << theortical_solution[i] << endl;
+            }
+            theory_file_out.close(); // Закрываем файл
+        }
+
+    QString solution_file_name = "solution" + QString::number(time_step_count) + "_" + QString::number(spatial_step_count) + ".csv";
+    QFile solution_file_out(solution_file_name);
+
+    if(solution_file_out.open(QIODevice::WriteOnly | QIODevice::Text))
+        { // Если файл успешно открыт для записи в текстовом режиме
+            QTextStream write_stream(&solution_file_out); // Создаем объект класса QTextStream
+    // и передаем ему адрес объекта fileOut
+            for (int i = 0; i < spatial_step_count + 1; i++) {
+                write_stream << i*hr << ";" << solution[i] << endl;
+            }
+            solution_file_out.close(); // Закрываем файл
+        }
+}
+
 void MainWindow::on_run_computing_button_clicked()
 {
     get_system_physical_parameters();
@@ -185,7 +214,7 @@ void MainWindow::on_run_computing_button_clicked()
     //theoretical_graph();
     graph();
 
-
+    write_file();
 }
 
 void MainWindow::theory() {

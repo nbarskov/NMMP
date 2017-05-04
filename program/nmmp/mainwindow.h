@@ -24,6 +24,7 @@ public:
     void graph();
     void solve();
     void theory();
+    void write_file();
 
 private slots:
     void on_run_computing_button_clicked();
